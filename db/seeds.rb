@@ -1,11 +1,65 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
-#Create User
-User.create!(email: "batman@gmail.com", first_name: "Bruce", last_name: "Wayne", password: "password")
-User.create!(email: "paul@gmail.com", first_name: "Paul", last_name: "Newman", password: "password")
-p User.last
+# Cleaning the db
+puts "Cleaning the db...."
+puts "____________________________________________________________"
+
+  User.destroy_all
+  Track.destroy_all
+
+# Create users
+puts "Creating users..."
+puts "____________________________________________________________"
+
+users = [
+  {email: 'alice@lewagon.org', first_name: 'Alice', last_name: 'F.', password: 'password'},
+  {email: 'laurane@lewagon.org', first_name: 'Laurane', last_name: 'D.', password: 'password'},
+  {email: 'victor@lewagon.org', first_name: 'Victor', last_name: 'G.', password: 'password'},
+  {email: 'romain@lewagon.org', first_name: 'Romain', last_name: 'C.', password: 'password'},
+  {email: "batman@lewagon.org", first_name: "Bruce", last_name: "Wayne", password: "password"}
+]
+
+users.size.times do |i|
+  puts "User ##{i + 1}:"
+  user = User.create!(users[i])
+  i += 1
+  # Render user details in the console
+  puts "First name: #{user.first_name}"
+  puts "Last name: #{user.last_name}"
+  puts "Email: #{user.email}"
+  puts "____________________________________________________________"
+end
+
+# Create tracks
+puts "Creating tracks.."
+puts "____________________________________________________________"
+
+5.times do |i|
+  track = Track.create!(
+    title: Faker::Educator.course_name,
+    description: Faker::Lorem.paragraph,
+    creator_id: User.all.sample.id
+    )
+  puts "Track ##{i + 1}"
+  puts "Title: #{track.title}"
+  puts "Description: #{track.description}"
+  puts "Creator: #{track.creator.first_name}"
+  puts "____________________________________________________________"
+end
+
+# Create chapters
+puts "Creating chapters..."
+puts "____________________________________________________________"
+
+# Create subscriptions
+puts "Creating subscriptions..."
+puts "____________________________________________________________"
+
+Track.all.each do |t|
+  subscription = Subscription.create!(
+    track_id: t.id,
+    user_id: User.all.sample.id
+    )
+  puts "#{subscription.user.first_name} subscribed to #{subscription.track.title}"
+  puts "____________________________________________________________"
+end
+
+puts "All done!"

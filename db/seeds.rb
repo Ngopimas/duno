@@ -11,7 +11,7 @@ puts "____________________________________________________________"
 
 users = [
   {email: 'alice@lewagon.org', first_name: 'Alice', last_name: 'F.', password: 'password'},
-  {email: 'laurane@lewagon.org', first_name: 'Laurane', last_name: 'D.', password: 'password'},
+  {email: 'lauranne@lewagon.org', first_name: 'Lauranne', last_name: 'D.', password: 'password'},
   {email: 'victor@lewagon.org', first_name: 'Victor', last_name: 'G.', password: 'password'},
   {email: 'romain@lewagon.org', first_name: 'Romain', last_name: 'C.', password: 'password'},
   {email: "batman@lewagon.org", first_name: "Bruce", last_name: "Wayne", password: "password"}
@@ -49,17 +49,23 @@ end
 puts "Creating chapters..."
 puts "____________________________________________________________"
 
+
+
 # Create subscriptions
 puts "Creating subscriptions..."
 puts "____________________________________________________________"
 
-Track.all.each do |t|
-  subscription = Subscription.create!(
-    track_id: t.id,
-    user_id: User.all.sample.id
+Track.find_each do |t|
+  n = rand(1...User.count)
+  random_users = User.all.reject { |u| u == t.creator }.sample(n)
+  random_users.each do |user|
+    subscription = Subscription.create!(
+      track: t,
+      user: user
     )
   puts "#{subscription.user.first_name} subscribed to #{subscription.track.title}"
   puts "____________________________________________________________"
+  end
 end
 
 puts "All done!"

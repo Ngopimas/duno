@@ -1,6 +1,6 @@
 .btn-gradient {
   color: #58373E;
-  padding: 6px 16px;
+  padding: 6px 32px;
   border-radius: 10px;
   background: #D8C0C5;
   border: solid 1px #58373E;
@@ -9,4 +9,11 @@
 .btn-gradient:hover {
   background: #58373E;
   color: #D8C0C5;
+}
+
+.btn-yellow {
+  color: black;
+  padding: 6px 32px;
+  border-radius: 10px;
+  background: #FFCD00;
 }

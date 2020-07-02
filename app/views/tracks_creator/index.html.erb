@@ -1,0 +1,29 @@
+<div class="container">
+  <h2>My tracks</h2>
+  <div class="cards">
+    <div class="card">
+      <div class="m-2 pb-3">
+        <h4>New track</h4>
+      </div>
+      <div class="m-2 pb-3">
+        <%= link_to 'Open', new_track_path, class:"button positive" %>
+      </div>
+    </div>
+    <% @tracks.each do |track| %>
+      <%= if track.creator_id = current_user.id %>
+        <div class="card">
+          <div class="m-2 pb-3">
+            <h4><%= track.title %></h4>
+          </div>
+          <div class="m-2 pb-3">
+            <%= link_to 'Open', edit_track_path(track), class:"button positive" %>
+            <%= link_to edit_track_as_creator_path(track), method: :delete,
+                    data: { confirm: 'Are you sure?' }, class:"icon" do %>
+                <i class="fas fa-trash"></i>
+            <% end %>
+          </div>
+        </div>
+      <% end  %>
+    <% end %>
+  </div>
+</div>

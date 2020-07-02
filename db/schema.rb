@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_27_120914) do
+ActiveRecord::Schema.define(version: 2020_06_27_122715) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "chapters", force: :cascade do |t|
+    t.string "title"
+    t.text "content"
+    t.bigint "track_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["track_id"], name: "index_chapters_on_track_id"
+  end
 
   create_table "subscriptions", force: :cascade do |t|
     t.bigint "user_id", null: false
@@ -48,6 +57,7 @@ ActiveRecord::Schema.define(version: 2020_06_27_120914) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "chapters", "tracks"
   add_foreign_key "subscriptions", "tracks"
   add_foreign_key "subscriptions", "users"
   add_foreign_key "tracks", "users", column: "creator_id"

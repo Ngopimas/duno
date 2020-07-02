@@ -49,7 +49,20 @@ end
 puts "Creating chapters..."
 puts "____________________________________________________________"
 
-
+Track.find_each do |track|
+  rand(3..10).times do |i|
+    chapter = Chapter.create!(
+        title: Faker::Lorem.word,
+        content: Faker::Lorem.paragraphs.join(" "),
+        track_id: track.id
+      )
+    puts "Track: #{track.title}"
+    puts "Chapter ##{i + 1}"
+    puts "Title: #{chapter.title}"
+    puts "content: #{chapter.content}"
+    puts "____________________________________________________________"
+  end
+end
 
 # Create subscriptions
 puts "Creating subscriptions..."

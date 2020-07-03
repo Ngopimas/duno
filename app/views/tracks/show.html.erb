@@ -1,7 +1,7 @@
 <h1><%= @track.title %></h1>
 <p><%= @track.description %></p>
 <div>
-  <% if @subscription.user %>
+  <% if @subscription.user_id %>
     <p>You have subscribed to this track</p>
   <% else %>
     <%= form_for(current_user.subscriptions.build, remote: true) do |f| %>

@@ -1,11 +1,14 @@
 <!-- HERO -->
 <section class="hero d-flex justify-content-center align-items-center">
   <div class="row">
-    <div class="col-lg-6 col-md-10 col-12 d-flex flex-column justify-content-center align-items-center bg-primary">
+    <div class="col-lg-6 col-md-10 col-12 d-flex flex-column justify-content-center align-items-center">
       <div class="hero-text">
         <h1 data-aos="fade-up">How you learn is everything</h1>
+        <p>Turn your content into a friendly e-learning track.</p>
 
-        <%= link_to 'Start now!', root_path, class:"btn btn-info btn-lg" %>
+        <%= link_to 'Start now!', root_path, class:"btn btn-dark btn-lg" %>
+        <%= link_to 'Find a track', root_path, class:"btn btn-outline-dark btn-lg" %>
+
       </div>
     </div>
 
@@ -20,33 +23,67 @@
 </section>
 
 <!-- ABOUT -->
-<section class="about section-padding pb-0" id="about">
-  <div class="container">
+<section class="about">
    <div class="row">
-
     <div class="col-lg-7 mx-auto col-md-10 col-12">
      <div class="about-info">
+      <h4 class="mb-4 text-center" data-aos="fade-up">Duno is an easy way for you and your company to share knowledge through an e-learning track. There’s no app or software download required. Just choose your own personalized URL, your content to share and create your track using your internet browser with just a few clicks.</h4>
+    </div>
+  </div>
+  <div class="col-lg-6 mx-auto col-md-10 col-12 my-5">
+    <%= image_tag "idea.png", class: "img-fluid"  %>
 
-      <h2 class="mb-4" data-aos="fade-up">the best <strong>Digital Marketing agency</strong> in Rio de Janeiro</h2>
+  </div>
+  <div class="col-12 mx-auto d-flex justify-content-center">
+    <%= link_to 'Create a track', root_path, class:"btn btn-primary btn-lg" %>
+  </div>
+</section>
 
-      <p class="mb-0" data-aos="fade-up">Total 5 HTML pages are included in this template from TemplateMo website. Please check 2 <a href="blog.html">blog</a> pages, <a href="project-detail.html">project</a> page, and <a href="contact.html">contact</a> page.
-        <br><br>You are <strong>allowed</strong> to use this template for commercial or non-commercial purpose. You are NOT allowed to redistribute the template ZIP file on template collection websites.</p>
+<!-- FEATURES -->
+<section class="features my-5">
+  <div class="my-5">
+    <h2 class="text-center" data-aos="fade-up" data-aos-delay="100">Build something amazing with your content</h2>
+    <h4 class="text-center" data-aos="fade-up" data-aos-delay="100">Product features</h4>
+  </div>
+  <div class="cards">
+
+    <div class="card">
+      <div class="card-body">
+        <h3 class="card-title text-center">Join with a click</h3>
+        <p class="card-text text-center">No downloads, PIN codes or registration for guests.</p>
       </div>
+      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg" />
+    </div>
 
-      <div class="about-image" data-aos="fade-up" data-aos-delay="200">
-
-        <%= image_tag "speed.png", class: "img-fluid"  %>
-
+    <div class="card">
+      <div class="card-body">
+        <h3 class="card-title text-center">Simple track links</h3>
+        <p class="card-text text-center">Share your custom link. Easy to remember – easy to join.</p>
       </div>
+      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/dinner.jpg" />
+    </div>
+
+    <div class="card">
+      <div class="card-body">
+        <h3 class="card-title text-center">Custom branding</h3>
+        <p class="card-text text-center">Add custom backgrounds and logos to showcase your brand.</p>
+      </div>
+      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/lunch.jpg" />
+    </div>
+
+    <div class="card">
+      <div class="card-body">
+        <h3 class="card-title text-center">Mobile support</h3>
+        <p class="card-text text-center">Join from your phone via browser or iOS app.</p>
+      </div>
+      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
     </div>
 
   </div>
-</div>
 </section>
 
 <!-- TESTIMONIAL -->
-<section class="testimonial section-padding">
-  <div class="container">
+<section class="testimonial">
    <div class="row">
 
     <div class="col-lg-6 col-md-5 col-12">
@@ -58,11 +95,11 @@
     </div>
 
     <div class="col-lg-6 col-md-7 col-12">
-      <h4 class="my-5 pt-3" data-aos="fade-up" data-aos-delay="100">Client Testimonials</h4>
+      <h4 class="my-5 pt-3 text-center" data-aos="fade-up" data-aos-delay="100">Client Testimonials</h4>
 
       <div class="quote" data-aos="fade-up" data-aos-delay="200"></div>
 
-      <h2 class="mb-4" data-aos="fade-up" data-aos-delay="300">Lorem ipsum Sed eiusmod esse aliqua sed incididunt aliqua incididunt mollit id et sit proident dolor nulla sed commodo.</h2>
+      <h2 class="mb-4" data-aos="fade-up" data-aos-delay="300">"We appreciate how Duno helps us improve our new employee onboarding. Amazing experience!"</h2>
 
       <p data-aos="fade-up" data-aos-delay="400">
         <strong>Mary Zoe</strong>
@@ -73,5 +110,7 @@
       </p>
     </div>
   </div>
-</div>
 </section>
+
+
+

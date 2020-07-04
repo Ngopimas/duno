@@ -29,6 +29,24 @@ class TracksController < ApplicationController
     @track = Track.find(params[:id])
   end
 
+  def edit
+    @track = Track.find(params[:id])
+  end
+
+  def update
+    if @track.update(track_params)
+      redirect_to @track
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @track = Track.find(params[:id])
+    @track.destroy
+    redirect_to tracks_path
+  end
+
   private
   def track_params
     params.require(:track).permit(:title, :description)

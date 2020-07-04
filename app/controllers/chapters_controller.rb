@@ -27,6 +27,6 @@ class ChaptersController < ApplicationController
   private
 
   def chapter_params
-    params.require(:chapter).permit(:title, :content, :track_id)
+    params.require(:chapter).permit(:title, :content, :rank)
   end
 end

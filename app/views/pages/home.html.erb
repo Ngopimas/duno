@@ -4,11 +4,8 @@
     <div class="col-lg-6 col-md-10 col-12 d-flex flex-column justify-content-center align-items-center">
       <div class="hero-text">
         <h1>How you learn is everything</h1>
-        <p>Turn your content into a friendly e-learning track.</p>
-
-        <%= link_to 'Start now!', root_path, class:"btn btn-dark btn-lg" %>
-        <%= link_to 'Find a track', root_path, class:"btn btn-outline-dark btn-lg" %>
-
+        <p class="my-4">Turn your content into a friendly e-learning track.</p>
+        <%= link_to 'Start now', root_path, class:"btn btn-dark btn-home" %>
       </div>
     </div>
 
@@ -25,9 +22,9 @@
 <!-- ABOUT -->
 <section class="about">
    <div class="row">
-    <div class="col-lg-7 mx-auto col-md-10 col-12">
+    <div class="col-lg-10 mx-auto col-md-10 col-12">
      <div class="about-info">
-      <h4 class="mb-4 text-center">Duno is an easy way for you and your company to share knowledge through an e-learning track. There’s no app or software download required. Just choose your own personalized URL, your content to share and create your track using your internet browser with just a few clicks.</h4>
+      <h4 class="mb-4 text-center">Duno is an easy way for you and your company to share knowledge through an e&#8209;learning track. There’s no app or software download required. Just choose your own personalized URL, your content to share and create your track using your internet browser with just few clicks.</h4>
     </div>
   </div>
   <div class="col-lg-6 mx-auto col-md-10 col-12 my-5">
@@ -35,7 +32,7 @@
 
   </div>
   <div class="col-12 mx-auto d-flex justify-content-center">
-    <%= link_to 'Create a track', root_path, class:"btn btn-primary btn-lg" %>
+    <%= link_to 'Create a track', root_path, class:"btn btn-primary btn-home" %>
   </div>
 </section>
 
@@ -45,7 +42,7 @@
     <h2 class="text-center">Build something amazing with your content</h2>
     <h4 class="text-center">Product features</h4>
   </div>
-  <div class="cards">
+  <div class="home-cards">
 
     <div class="card">
       <div class="card-body">
@@ -97,20 +94,53 @@
     <div class="col-lg-6 col-md-7 col-12">
       <h4 class="my-5 pt-3 text-center">Client Testimonials</h4>
 
-      <div class="quote"></div>
+      <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="quote">
+              <h2 class="mb-4">"We appreciate how Duno helps us improve our new employee onboarding. Amazing experience!"</h2>
 
-      <h2 class="mb-4">"We appreciate how Duno helps us improve our new employee onboarding. Amazing experience!"</h2>
+              <p>
+                <strong>Mary Zoe</strong>
 
-      <p>
-        <strong>Mary Zoe</strong>
+                <span class="mx-1">/</span>
 
-        <span class="mx-1">/</span>
+                <small>Digital Agency (CEO)</small>
+              </p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="quote">
+              <h2 class="mb-4">"Duno allows us to widen the types of content to push out and bring our e-learning tracks to a next level."</h2>
 
-        <small>Digital Agency (CEO)</small>
-      </p>
+              <p>
+                <strong>John Doe</strong>
+
+                <span class="mx-1">/</span>
+
+                <small>U.S. Department of Labor (HR director)</small>
+              </p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="quote">
+              <h2 class="mb-4">"We appreciate how Duno helps us improve our new employee onboarding. Amazing experience!"</h2>
+
+              <p>
+                <strong>Rémi Martin</strong>
+
+                <span class="mx-1">/</span>
+
+                <small>Language Department (French teacher)</small>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
 
-<%= render "shared/search" %>
+
 

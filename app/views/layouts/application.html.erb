@@ -11,9 +11,12 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
   </head>
 
-  <body style="background-color: white;">
+  <body id="<%= controller.controller_name %>-<%= controller.action_name %>">
+  
     <%= render 'shared/flashes' %>
 
-    <%= yield %>
+
+      <%= yield %>
+    </div>
   </body>
 </html>

@@ -1,3 +1,4 @@
+<%= link_to "<<<", tracks_path %>
 <h1><%= @track.title %></h1>
 <p><%= @track.description %></p>
 <div class="row">
@@ -17,4 +18,13 @@
       </tbody>
     </table>
   </div>
+<div>
+  <% if @subscription.user_id %>
+    <p>You have subscribed to this track</p>
+  <% else %>
+    <%= form_for(current_user.subscriptions.build, remote: true) do |f| %>
+      <div><%= hidden_field_tag :track_id, @track.id %></div>
+      <p class="lead center"><%= f.submit "Start the track", class: "btn btn-primary w-100 btn-lg" %></p>
+    <% end %>
+  <% end %>
 </div>

@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   resources :tracks, only: [:index, :show, :new, :create] do
     resources :chapters, only: [:index, :show, :new, :create]
   end
+  resources :subscriptions, only: [:create]
 end

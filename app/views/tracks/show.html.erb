@@ -1,23 +1,61 @@
-<%= link_to "<<<", tracks_path %>
-<h1><%= @track.title %></h1>
-<p><%= @track.description %></p>
 <div class="row">
-  <div class="col-sm-12 col-md-6">
-    <table class="table table-bordered">
-      <tbody>
-        <thead>
-          <th>Title</th>
-          <th>Content</th>
-        </thead>
-        <% @track.chapters.each do |chapter| %>
-          <tr>
-            <td> <%= chapter.title %>  </td>
-            <td> <%= chapter.content %>  </td>
-          </tr>
-          <% end %>
-      </tbody>
-    </table>
+  <div class="col-1 card">
+    <div class= "mx-auto py-3">
+      <%= image_tag "edit_logo.jpg", width: "50px" %>
+    </div>
+    <div class= "mx-auto py-3">
+      <%= image_tag "edit_logo.jpg", width: "50px" %>
+    </div>
+    <div class= "mx-auto py-3">
+      <%= image_tag "edit_logo.jpg", width: "50px" %>
+    </div>
   </div>
-<div>
+  <div class="col-2 card card-chapter">
+    <% @track.chapters.each do |chapter| %>
+      <p> <%= chapter.rank %>  </p>
+      <p> <%= chapter.title %>  </p>
+     <% end %>
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-dark p-0" style="font-weight:bold; font-size:1.5em; width:40px; height:40px;" data-toggle="modal" data-target="#exampleModalCenter">
+      +
+    </button>
 
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">Add a new chapter</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <%= simple_form_for [@track, @chapter]  do |f| %>
+              <%= f.input :rank, label: "Number" %>
+              <%= f.input :title, label: "Title" %>
+              <%= f.input :content, label: "Content" %>
+          </div>
+          <div class="modal-footer">
+              <%= f.button :submit, "Add the chapter",  class: "btn btn-primary btn-lg mt-5" %>
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-5 card">
+    <div class= "mx-auto py-5">
+      <p>Choose your media</p>
+    </div>
+    <div class= "mx-auto">
+      <p>Icons</p>
+    </div>
+
+  </div>
+  <div class="col-4 card">
+    <p>preview column</p>
+  </div>
 </div>
+

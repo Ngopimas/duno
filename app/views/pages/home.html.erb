@@ -1,7 +1,151 @@
 <%= render 'shared/navbar' %>
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
-<%= render "shared/search" %>
+
+<div class="container">
+<!-- HERO -->
+<section class="hero d-flex justify-content-center align-items-center">
+  <div class="row">
+    <div class="col-lg-6 col-md-10 col-12 d-flex flex-column justify-content-center align-items-center">
+      <div class="hero-text">
+        <h1>How you learn is everything</h1>
+        <p class="my-4">Turn your content into a friendly e-learning track.</p>
+        <%= link_to 'Start now', root_path, class:"btn btn-dark btn-home" data-toggle="modal" data-target="#exampleModalCenter"%>
+      </div>
+    </div>
+
+    <div class="col-lg-6 col-12">
+      <div class="hero-image">
+
+        <%= image_tag "scholar.png", class: "img-fluid"  %>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about">
+   <div class="row">
+    <div class="col-lg-9 mx-auto col-md-10 col-12">
+     <div class="about-info">
+      <h4 class="mb-4 text-center">Duno is an easy way for you and your company to share knowledge through an e&#8209;learning track. There’s no app or software download required. Just choose your own personalized URL, your content to share and create your track using your internet browser with just few clicks.</h4>
+    </div>
+  </div>
+  <div class="col-lg-6 mx-auto col-md-10 col-12 my-5">
+    <%= image_tag "idea.png", class: "img-fluid"  %>
+
+  </div>
+  <div class="col-12 mx-auto d-flex justify-content-center">
+    <%= link_to 'Create a track', root_path, class:"btn btn-primary btn-home" data-toggle="modal" data-target="#exampleModalCenter" %>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="features my-5">
+  <div class="my-5">
+    <h2 class="text-center">Build something amazing with your content</h2>
+    <h4 class="text-center">Product features</h4>
+  </div>
+  <div class="home-cards">
+
+    <div class="card">
+      <div class="card-body">
+        <h3 class="card-title text-center">Join with a click</h3>
+        <p class="card-text text-center">No downloads, PIN codes or registration for guests.</p>
+      </div>
+      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg" />
+    </div>
+
+    <div class="card">
+      <div class="card-body">
+        <h3 class="card-title text-center">Simple links</h3>
+        <p class="card-text text-center">Share your custom link. Easy to remember – easy to join.</p>
+      </div>
+      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/dinner.jpg" />
+    </div>
+
+    <div class="card">
+      <div class="card-body">
+        <h3 class="card-title text-center">Custom branding</h3>
+        <p class="card-text text-center">Add custom backgrounds and logos to showcase your brand.</p>
+      </div>
+      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/lunch.jpg" />
+    </div>
+
+    <div class="card">
+      <div class="card-body">
+        <h3 class="card-title text-center">Mobile support</h3>
+        <p class="card-text text-center">Join from your phone via browser or iOS app.</p>
+      </div>
+      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+    </div>
+
+  </div>
+</section>
+
+<!-- TESTIMONIAL -->
+<section class="testimonial">
+   <div class="row">
+
+    <div class="col-lg-6 col-md-5 col-12">
+      <div class="contact-image">
+
+        <%= image_tag "testimony.png", class: "img-fluid"  %>
+
+      </div>
+    </div>
+
+    <div class="col-lg-6 col-md-7 col-12">
+      <h4 class="my-5 pt-3 text-center">Client Testimonials</h4>
+
+      <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="quote">
+              <h2 class="mb-4">"We appreciate how Duno improved our new employee onboarding. Amazing experience!"</h2>
+
+              <p>
+                <strong>Mary Zoe</strong>
+
+                <span class="mx-1">/</span>
+
+                <small>Digital Agency (CEO)</small>
+              </p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="quote">
+              <h2 class="mb-4">"Duno allows us to widen the types of content to push out and bring our e-learning tracks to a next level."</h2>
+
+              <p>
+                <strong>John Doe</strong>
+
+                <span class="mx-1">/</span>
+
+                <small>U.S. Department of Labor (HR director)</small>
+              </p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="quote">
+              <h2 class="mb-4">"Using Duno made my lessons better & add continuous excitement for my students. And the app is so easy to use. Trully, this is brilliant!"</h2>
+
+              <p>
+                <strong>Rémi Martin</strong>
+
+                <span class="mx-1">/</span>
+
+                <small>Language Department (French teacher)</small>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+</div>
 
 <!-- Button trigger modal -->
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
@@ -31,3 +175,4 @@
     </div>
   </div>
 </div>
+

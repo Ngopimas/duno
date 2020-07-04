@@ -8,7 +8,7 @@
       <div class="hero-text">
         <h1>How you learn is everything</h1>
         <p class="my-4">Turn your content into a friendly e-learning track.</p>
-        <%= link_to 'Start now', root_path, class:"btn btn-dark btn-home" data-toggle="modal" data-target="#exampleModalCenter"%>
+        <%= link_to 'Start now', root_path, class:"btn btn-dark btn-home", data: { toggle:"modal", target:"#exampleModalCenter" }%>
       </div>
     </div>
 
@@ -35,7 +35,7 @@
 
   </div>
   <div class="col-12 mx-auto d-flex justify-content-center">
-    <%= link_to 'Create a track', root_path, class:"btn btn-primary btn-home" data-toggle="modal" data-target="#exampleModalCenter" %>
+    <%= link_to 'Create a track', root_path, class:"btn btn-primary btn-home", data:{ toggle:"modal", target:"#exampleModalCenter" }%>
   </div>
 </section>
 
@@ -147,10 +147,6 @@
 
 </div>
 
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-  Create a track
-</button>
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">

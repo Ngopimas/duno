@@ -1,0 +1,30 @@
+<%= link_to "<<<", tracks_path %>
+<h1><%= @track.title %></h1>
+<p><%= @track.description %></p>
+<div class="row">
+  <div class="col-sm-12 col-md-6">
+    <table class="table table-bordered">
+      <tbody>
+        <thead>
+          <th>Title</th>
+          <th>Content</th>
+        </thead>
+        <% @track.chapters.each do |chapter| %>
+          <tr>
+            <td> <%= chapter.title %>  </td>
+            <td> <%= chapter.content %>  </td>
+          </tr>
+          <% end %>
+      </tbody>
+    </table>
+  </div>
+<div>
+  <% if @subscription.user_id %>
+    <p>You have subscribed to this track</p>
+  <% else %>
+    <%= form_for(current_user.subscriptions.build, remote: true) do |f| %>
+      <div><%= hidden_field_tag :track_id, @track.id %></div>
+      <p class="lead center"><%= f.submit "Start the track", class: "btn btn-primary w-100 btn-lg" %></p>
+    <% end %>
+  <% end %>
+</div>

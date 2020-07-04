@@ -1,0 +1,28 @@
+<div class="container p-5">
+  <h2>My tracks</h2>
+  <div class="py-3 d-flex flex-wrap">
+    <div class="mr-5 card-track flex-column flex-direction-column justify-content-between text-center" style="background-color: #FFEC01;">
+      <div class="m-2 pb-3">
+        <h4>New track</h4>
+      </div>
+      <div class="m-2 pb-3">
+        <%= link_to '+', new_track_path, class:"btn btn-dark p-0", style:"font-weight:bold; font-size:1.5em; width:40px; height:40px;" %>
+      </div>
+    </div>
+
+    <% @tracks.each do |track| %>
+      <% if track.creator_id == current_user.id %>
+        <div class="mr-5 card-track flex-column flex-direction-column justify-content-between text-center">
+          <div class="m-2 pb-3">
+            <h4><%= track.title %></h4>
+          </div>
+          <div class="m-2 pb-3">
+            <%= link_to 'Open', track_path(track), class:"btn custom" %>
+            <%= link_to 'Delete', track_path(track), method: :delete,
+                    data: { confirm: 'Are you sure?' }, class:"btn btn-outline-secondary" %>
+          </div>
+        </div>
+      <% end  %>
+    <% end %>
+  </div>
+</div>

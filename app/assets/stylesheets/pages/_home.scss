@@ -1,1 +1,19 @@
 // Specific CSS for your home-page
+
+  .hero {
+    position: relative;
+    padding-bottom: 5em;
+  }
+
+  .hero-bg {
+    background: linear-gradient(90deg, var(--primary) 48%, var(--white) 32%);
+  }
+
+  .hero-image {
+    position: relative;
+    top: 2em;
+  }
+
+  .hero-text {
+   padding: 15em 0;
+  }

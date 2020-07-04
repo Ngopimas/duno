@@ -1,6 +1,14 @@
 class TracksController < ApplicationController
   def index
-    @tracks = Track.all
+    if params[:search][:query].present?
+      sql_query = " \
+        tracks.title @@ :query \
+        OR tracks.description @@ :query \
+      "
+      @tracks = Track.where(sql_query, query: "%#{params[:search][:query]}%")
+    else
+      @tracks = Track.all
+    end
   end
 
   def new
@@ -19,6 +27,24 @@ class TracksController < ApplicationController
 
   def show
     @track = Track.find(params[:id])
+  end
+
+  def edit
+    @track = Track.find(params[:id])
+  end
+
+  def update
+    if @track.update(track_params)
+      redirect_to @track
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @track = Track.find(params[:id])
+    @track.destroy
+    redirect_to tracks_path
   end
 
   private

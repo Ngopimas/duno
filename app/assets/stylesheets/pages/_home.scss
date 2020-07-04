@@ -41,16 +41,20 @@
  padding: 15em 0;
 }
 
-.card img {
-  height: 400px;
-  width: 100%;
-  object-fit: cover;
+.card {
+  box-shadow: 0 4px 8px rgba(116, 111, 106, .3);
+  img {
+    height: 400px;
+    width: 100%;
+    object-fit: cover;
+  }
 }
+
 
 .home-cards {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-gap: 16px;
+  grid-gap: 24px;
 }
 
 // Smallest device

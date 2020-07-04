@@ -27,6 +27,7 @@ class TracksController < ApplicationController
 
   def show
     @track = Track.find(params[:id])
+    @subscription = current_user.subscriptions.where(track_id: @track.id).first || Subscription.new
   end
 
   def edit

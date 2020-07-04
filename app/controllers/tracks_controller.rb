@@ -28,6 +28,7 @@ class TracksController < ApplicationController
   def show
     @track = Track.find(params[:id])
     @subscription = current_user.subscriptions.where(track_id: @track.id).first || Subscription.new
+    @chapter = Chapter.new
   end
 
   def edit
@@ -51,4 +52,5 @@ class TracksController < ApplicationController
   private
   def track_params
     params.require(:track).permit(:title, :description)
+  end
 end

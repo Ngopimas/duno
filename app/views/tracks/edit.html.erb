@@ -1,0 +1,94 @@
+<!-- Navbar view edit  -->
+<div class="d-flex row py-2 justify-content-between">
+  <div class="d-flex col-2 justify-content-start">
+    <%= link_to "#" do %>
+      <i class="fas fa-arrow-left ml-2 mr-2 "></i>
+    <% end %>
+    <%= @track.title %>
+  </div>
+  <div class="d-flex col-6 justify-content-center">
+    <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+      <li class="nav-item">
+        <a class="mr-5 nav-link active" id="pills-build-tab" data-toggle="pill" href="#pills-build" role="tab" aria-controls="pills-build" aria-selected="true">Build</a>
+      </li>
+      <li class="nav-item">
+        <a class="mr-5 nav-link" id="pills-share-tab" data-toggle="pill" href="#pills-share" role="tab" aria-controls="pills-share" aria-selected="false">Share</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="pills-overview-tab" data-toggle="pill" href="#pills-overview" role="tab" aria-controls="pills-overview" aria-selected="false">Overview</a>
+      </li>
+    </ul>
+  </div>
+  <div class="d-flex col-4 justify-content-end">
+    <div class="btn btn-primary mr-2">Preview</div>
+    <div class="btn btn-primary mr-2">Publish</div>
+    <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "mr-2 avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+      <%= link_to "My account", "#", class: "dropdown-item" %>
+      <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+    </div>
+  </div>
+</div>
+
+<!-- Body view edit  -->
+
+<div class="tab-content" id="pills-tabContent">
+
+  <!-- Onglet BUILD  -->
+  <div class="d-flex tab-pane fade show active row" id="pills-build" role="tabpanel" aria-labelledby="pills-build-tab">
+
+    <!-- Navbar de l'onglet BUILD  -->
+
+    <div class="nav flex-column nav-pills col-1 text-center" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+      <a class="nav-link active" id="v-pills-chapters-tab" data-toggle="pill" href="#v-pills-chapters" role="tab" aria-controls="v-pills-chapters" aria-selected="true"><i class="far fa-edit"></i></a>
+      <a class="nav-link" id="v-pills-style-tab" data-toggle="pill" href="#v-pills-style" role="tab" aria-controls="v-pills-style" aria-selected="false"><i class="fas fa-palette"></i></a>
+      <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false"><i class="fas fa-cog"></i></a>
+    </div>
+
+    <!-- Body de l'onglet BUILD  -->
+
+    <div class="tab-content col-11" id="v-pills-tabContent">
+      <div class="tab-pane fade show active" id="v-pills-chapters" role="tabpanel" aria-labelledby="v-pills-chapters-tab">
+        <!-- Insérer ici le code du sous-onglet CHAPTERS  -->
+        <p>Code sous-onglet Chapters</p>
+
+
+      </div>
+      <div class="tab-pane fade" id="v-pills-style" role="tabpanel" aria-labelledby="v-pills-style-tab">
+        <!-- Insérer ici le code du sous-onglet STYLE  -->
+        <p>Code sous-onglet Style</p>
+
+
+      </div>
+      <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
+        <!-- Insérer ici le code du sous-onglet SETTINGS  -->
+        <p>Code sous-onglet Settings</p>
+
+
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Onglet SHARE  -->
+  <div class="d-flex tab-pane fade" id="pills-share" role="tabpanel" aria-labelledby="pills-share-tab">
+    <!-- Insérer ici le code de l'onglet SHARE  -->
+    <p>Code onglet Share</p>
+
+
+  </div>
+
+
+  <!-- Onglet OVERVIEW  -->
+  <div class="d-flex tab-pane fade" id="pills-overview" role="tabpanel" aria-labelledby="pills-overview-tab">
+    <!-- Insérer ici le code de l'onglet OVERVIEW  -->
+    <p>Code onglet Overview</p>
+
+
+  </div>
+</div>
+
+
+<script>
+  $('#pills-build').tab('show')
+</script>

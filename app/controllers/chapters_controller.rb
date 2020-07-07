@@ -14,7 +14,7 @@ class ChaptersController < ApplicationController
     @track = Track.find(params[:track_id])
     @chapter.track = @track
     if @chapter.save
-      redirect_to track_path(@track)
+      redirect_to edit_track_path(@track)
     else
       render :new
     end

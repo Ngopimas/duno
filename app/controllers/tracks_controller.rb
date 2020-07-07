@@ -8,6 +8,7 @@ class TracksController < ApplicationController
       @track_paramss = Track.where(sql_query, query: "%#{params[:query]}%")
     else
       @tracks = Track.all
+      @track = Track.new
     end
   end
 

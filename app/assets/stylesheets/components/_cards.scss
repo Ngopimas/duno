@@ -42,10 +42,12 @@
 
 .card-track {
   width: 200px;
+  height: 200px;
   display: flex;
   justify-content: center;
   background-color: #F0F0F0;
   font-weight: bold;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
 }
 
 .btn.custom {

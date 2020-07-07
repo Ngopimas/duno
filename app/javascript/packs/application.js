@@ -27,8 +27,10 @@ import "bootstrap";
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
+import { initScrollReveal } from '../plugins/init_scroll_reveal';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
+  initScrollReveal();
 });

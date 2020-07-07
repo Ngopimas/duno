@@ -19,7 +19,7 @@ class TracksController < ApplicationController
     @track = Track.new(track_params)
     @track.creator_id = current_user.id
     if @track.save
-      redirect_to track_path(@track)
+      redirect_to edit_track_path(@track)
     else
       render :new
     end
@@ -33,11 +33,13 @@ class TracksController < ApplicationController
 
   def edit
     @track = Track.find(params[:id])
+    @subscription = current_user.subscriptions.where(track_id: @track.id).first || Subscription.new
+    @chapter = Chapter.new
   end
 
   def update
     if @track.update(track_params)
-      redirect_to @track
+      redirect_to edit_track_path(@track)
     else
       render :edit
     end

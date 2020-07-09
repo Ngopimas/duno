@@ -60,13 +60,13 @@
                 <%= f.button :submit, "Edit my chapter",  class: "btn btn-primary btn-lg mt-5" %>
               <% end %>
             </div>
-
     </div>
   </div>
   <div class="col-4 card">
     <div class="smartphone">
-      <div class="inside-content">
-
+      <div class="inside-content p-3">
+        <h3> <%= @track.chapters.last.title %> </h3>
+        <%= @track.chapters.last.content %>
       </div>
     </div>
   </div>

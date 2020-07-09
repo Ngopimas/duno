@@ -1,10 +1,26 @@
 <div class="row vh-100">
   <div class="col-2 card card-chapter">
+<<<<<<< HEAD
+    <div class="row justify-content-start">
+      <div class="col-4 justify-content-center align-self-center">
+        <% @track.chapters.each do |chapter| %>
+          <p style="width:40px; height:40px; font-weight:bold; background-color:#747575; border-radius:5px; text-align:center; color: white;"> <%= chapter.rank %>  </p>
+        <% end %>
+      </div>
+      <div class="col-8 justify-content-center align-self-center">
+        <% @track.chapters.each do |chapter| %>
+          <p style="height:40px; font-weight:bold; "> <%= chapter.title %>  </p>
+         <% end %>
+      </div>
+    </div>
+
+=======
     <% @track.chapters.each do |chapter| %>
       <p class="btn custom" > <%= chapter.rank %>  </p>
       <p> <%= link_to chapter.title, edit_track_chapter_path(@track, chapter) %>
  </p>
      <% end %>
+>>>>>>> master
     <!-- Button trigger modal -->
     <button type="button" class="btn btn-dark p-0" style="font-weight:bold; font-size:1.5em; width:40px; height:40px;" data-toggle="modal" data-target="#exampleModalCenter">
       +

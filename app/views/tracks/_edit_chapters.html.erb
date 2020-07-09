@@ -1,8 +1,9 @@
-<div class="row min-vh-100">
+<div class="row vh-100">
   <div class="col-2 card card-chapter">
     <% @track.chapters.each do |chapter| %>
-      <p> <%= chapter.rank %>  </p>
-      <p> <%= chapter.title %>  </p>
+      <p class="btn custom" > <%= chapter.rank %>  </p>
+      <p> <%= link_to chapter.title, edit_track_chapter_path(@track, chapter) %>
+ </p>
      <% end %>
     <!-- Button trigger modal -->
     <button type="button" class="btn btn-dark p-0" style="font-weight:bold; font-size:1.5em; width:40px; height:40px;" data-toggle="modal" data-target="#exampleModalCenter">
@@ -36,13 +37,15 @@
   </div>
 
   <div class="col-6 card">
-    <div class= "mx-auto py-5">
+    <!--  <div class= "mx-auto py-5">
       <p>Choose your media</p>
     </div>
     <div class= "mx-auto">
       <p>Icons</p>
-    </div>
+    </div> -->
+      <div class= "mx-auto">
 
+    </div>
   </div>
   <div class="col-4 card">
     <div class="smartphone">

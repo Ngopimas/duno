@@ -12,11 +12,9 @@
   </head>
 
   <body id="<%= controller.controller_name %>-<%= controller.action_name %>">
-  
+
     <%= render 'shared/flashes' %>
+    <%= yield %>
 
-
-      <%= yield %>
-    </div>
   </body>
 </html>

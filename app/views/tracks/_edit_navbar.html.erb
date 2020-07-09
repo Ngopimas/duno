@@ -1,38 +1,45 @@
-<div class="d-flex row py-2 justify-content-between">
 
-  <div class="d-flex col-2 justify-content-start">
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon mx-4">
+  <div>
+
     <%= link_to tracks_path do %>
-      <i class="fas fa-arrow-left ml-2 mr-2 "></i>
+      <i class="fas fa-arrow-left mx-2 "></i>
     <% end %>
     <%= @track.title %>
   </div>
 
-  <div class="d-flex col-6 justify-content-center">
-    <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-      <li class="nav-item">
-        <a class="mr-5 nav-link active" id="pills-build-tab" data-toggle="pill" href="#pills-build" role="tab" aria-controls="pills-build" aria-selected="true">Build</a>
-      </li>
-      <li class="nav-item">
-        <a class="mr-5 nav-link" id="pills-share-tab" data-toggle="pill" href="#pills-share" role="tab" aria-controls="pills-share" aria-selected="false">Share</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" id="pills-overview-tab" data-toggle="pill" href="#pills-overview" role="tab" aria-controls="pills-overview" aria-selected="false">Overview</a>
-      </li>
-    </ul>
-  </div>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+      </button>
 
-  <div class="d-flex col-4 justify-content-end">
-    <div class="btn btn-primary mr-2">Preview</div>
-    <div class="btn btn-primary mr-2">Publish</div>
-    <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "mr-2 avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-      <%= link_to "My account", "#", class: "dropdown-item" %>
-      <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="nav nav-pills" id="pills-tab" role="tablist">
+            <li class="nav-item">
+              <a class="mx-4 nav-link active" id="pills-build-tab" data-toggle="pill" href="#pills-build" role="tab" aria-controls="pills-build" aria-selected="true">Build</a>
+            </li>
+            <li class="nav-item">
+              <a class="mx-4 nav-link" id="pills-share-tab" data-toggle="pill" href="#pills-share" role="tab" aria-controls="pills-share" aria-selected="false">Share</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="pills-overview-tab" data-toggle="pill" href="#pills-overview" role="tab" aria-controls="pills-overview" aria-selected="false">Overview</a>
+            </li>
+          </ul>
+        </div>
+
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <%= link_to "#", title: "Preview", class: "mx-1 btn btn-outline-secondary" do %>
+              <i class="fas fa-eye"></i>
+          <% end %>
+          <%= link_to "Publish", "#", class: "mx-1 btn btn-yellow"%>
+        <%= link_to "Upgrade", "#", class: "mx-4 btn btn-outline-secondary"%>
+        <%= image_tag "https://upload-icon.s3.us-east-2.amazonaws.com/uploads/icons/png/16671574911586787867-512.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+          <%= link_to "My tracks", tracks_path, class: "dropdown-item" %>
+          <%= link_to "My account", "#", class: "dropdown-item" %>
+          <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+        </div>
+      </div>
     </div>
-  </div>
-
 </div>
-
-<script>
-
-</script>

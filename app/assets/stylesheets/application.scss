@@ -12,3 +12,9 @@
 @import "components/index";
 @import "pages/index";
 @import "components/cards";
+
+
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}

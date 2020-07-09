@@ -26,7 +26,7 @@
 <div class="row min-vh-100">
   <div class="col-2 card card-chapter">
     <% @chapter.track.chapters.each do |chapter| %>
-      <p class="btn custom" > <%= chapter.rank %>  </p>
+      <p class="btn btn-yellow" > <%= chapter.rank %>  </p>
       <p> <%= link_to chapter.title, edit_track_chapter_path(@chapter.track, chapter) %>
  </p>
      <% end %>

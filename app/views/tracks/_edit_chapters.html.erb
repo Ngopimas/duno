@@ -52,8 +52,14 @@
     <div class= "mx-auto">
       <p>Icons</p>
     </div> -->
-    <div class= "mx-auto p-3">
-      <%= @track.chapters.last.content %>
+      <div class= "mx-auto">
+        <div class= "mx-auto py-5">
+              <%= simple_form_for [@track, @track.chapters.last] do |f| %>
+                <%= f.input :title, label: "Title" %>
+                <%= f.input :content, label: "Content" %>
+                <%= f.button :submit, "Edit my chapter",  class: "btn btn-primary btn-lg mt-5" %>
+              <% end %>
+            </div>
     </div>
   </div>
   <div class="col-4 card">

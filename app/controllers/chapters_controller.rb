@@ -24,6 +24,21 @@ class ChaptersController < ApplicationController
     @chapter = Chapter.find(params[:id])
   end
 
+  def edit
+    @chapter = Chapter.find(params[:id])
+    @track = @chapter.track
+  end
+
+  def update
+    @chapter = Chapter.find(params[:id])
+    @track = @chapter.track
+    if @chapter.update(chapter_params)
+      redirect_to edit_track_path(@chapter.track)
+    else
+      render :edit
+    end
+  end
+
   private
 
   def chapter_params

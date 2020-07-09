@@ -52,14 +52,15 @@
     <div class= "mx-auto">
       <p>Icons</p>
     </div> -->
-      <div class= "mx-auto">
-
+    <div class= "mx-auto p-3">
+      <%= @track.chapters.last.content %>
     </div>
   </div>
   <div class="col-4 card">
     <div class="smartphone">
-      <div class="inside-content">
-
+      <div class="inside-content p-3">
+        <h3> <%= @track.chapters.last.title %> </h3>
+        <%= @track.chapters.last.content %>
       </div>
     </div>
   </div>

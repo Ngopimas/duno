@@ -9,7 +9,7 @@
       <div class="hero-text">
         <h1>How you learn is everything</h1>
         <p class="my-4">Turn your content into a friendly e-learning track.</p>
-        <%= link_to 'Start now', root_path, class:"btn btn-dark btn-home", data: { toggle:"modal", target:"#exampleModalCenter" }%>
+        <%= link_to 'Start now', new_track_path, class:"btn btn-dark btn-home", data: { toggle:"modal", target:"#exampleModalCenter" }%>
       </div>
     </div>
 
@@ -37,7 +37,7 @@
   </div>
 
   <div class="col-12 mx-auto d-flex justify-content-center my-4 slide-up">
-    <%= link_to 'Create a track', root_path, class:"btn btn-primary btn-home", data:{ toggle:"modal", target:"#exampleModalCenter" }%>
+    <%= link_to 'Create a track', new_track_path, class:"btn btn-yellow btn-home", data:{ toggle:"modal", target:"#exampleModalCenter" }%>
   </div>
 </section>
 
@@ -154,7 +154,7 @@
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">Create a track</h5>
+        <h5 class="modal-title" id="exampleModalLongTitle">Create a new track</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -165,7 +165,9 @@
           <%= f.input :description, label: "Description" %>
       </div>
       <div class="modal-footer">
-          <%= f.button :submit, "Create my track",  class: "btn btn-primary btn-home" %>
+
+          <%= f.button :submit, "Create my track",  class: "btn btn-primary" %>
+
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
         <% end %>
       </div>

@@ -54,7 +54,8 @@ Track.find_each do |track|
     chapter = Chapter.create!(
         title: Faker::Lorem.word,
         content: Faker::Lorem.paragraphs.join(" "),
-        track_id: track.id
+        track_id: track.id,
+        rank: i + 1
       )
     puts "Track: #{track.title}"
     puts "Chapter ##{i + 1}"

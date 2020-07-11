@@ -3,3 +3,26 @@
   padding: 24px;
   border-radius: 3px
 }
+
+// #tracks-edit {
+  .yellow-line {
+    font-size: 40px;
+    position: relative;
+  }
+    .yellow-line:before {
+      content: "";
+      height: 20px;
+      width: 105%;
+      background-color: $yellow;
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: -1;
+    }
+
+  p{
+    font-size: 20px;
+  }
+  // }
+

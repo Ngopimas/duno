@@ -28,6 +28,9 @@ gem 'redis', '~> 4.0'
 # Add fake infos to db
 gem 'faker'
 
+# Attaching images to content in Rich Text Editor
+gem 'image_processing'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 

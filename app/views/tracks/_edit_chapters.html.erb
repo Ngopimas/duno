@@ -33,7 +33,6 @@
             <%= simple_form_for [@track, @chapter]  do |f| %>
               <%= f.input :rank, label: "Number" %>
               <%= f.input :title, label: "Title" %>
-              <%= f.input :content, as: :rich_text_area, label: "Content" %>
           </div>
           <div class="modal-footer">
               <%= f.button :submit, "Add the chapter",  class: "btn btn-primary" %>

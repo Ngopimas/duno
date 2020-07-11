@@ -9,7 +9,7 @@
   border-bottom-width: 60px;
   border-radius: 36px;
 
-    /* The horizontal line on the top of the device */
+  /* The horizontal line on the top of the device */
   &:before {
     content: '';
     display: block;
@@ -37,6 +37,7 @@
     border-radius: 50%;
   }
 
+  /* The content inside the device */
   .inside-content {
     max-height: 100%;
   }

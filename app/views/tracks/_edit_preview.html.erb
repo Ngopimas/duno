@@ -1,0 +1,37 @@
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon mx-4 py-3 ">
+  <div>
+    <%= link_to "< Back to edit mode", edit_track_path(@track), class:"text-decoration-none text-dark" %>
+  </div>
+  <%= link_to "Publish", "#", class: "mx-1 btn btn-yellow"%>
+</div>
+<div class="d-flex justify-content-center p-5">
+  <div class="smartphone bg-white">
+    <div class="inside-content p-3 overflow-auto">
+    <% if !@track.chapters.last.nil? %>
+      <div class="pt-2 d-flex justify-content-between align-text-top">
+        <h3>Mon logo</h3>
+        <p>Mon statut</p>
+      </div>
+      <div class="py-3">
+        <div class="progress">
+          <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%"></div>
+        </div>
+      </div>
+
+      <% @track.chapters.each do |chapter| %>
+        <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+            <li class="nav-item">
+              <a class="nav-link" id="pills-chapter-tab" data-toggle="pill" href="#pills-chapter-<%= chapter.id %>" role="tab" aria-controls="pills-chapter" aria-selected="true"><%= chapter.title %></a>
+            </li>
+        </ul>
+        <div class="tab-content" id="pills-tabContent">
+          <div class="tab-pane show" id="pills-chapter-<%= chapter.id %>" role="tabpanel" aria-labelledby="pills-chapter-<%= chapter.id %>-tab">
+            <%= chapter.content %>
+          </div>
+        </div>
+      <% end %>
+
+    <% end %>
+    </div>
+  </div>
+</div>

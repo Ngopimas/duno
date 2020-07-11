@@ -29,9 +29,11 @@
 
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <%= link_to "#", title: "Preview", class: "mx-1 btn btn-outline-secondary" do %>
-              <i class="fas fa-eye"></i>
-          <% end %>
+          <div class="nav-link" id="pills-preview-tab" data-toggle="pill" href="#pills-preview" role="tab" aria-controls="pills-preview" aria-selected="false">
+            <%= link_to "#pills-preview", title: "Preview", class: "mx-1 btn btn-outline-secondary" do %>
+                <i class="fas fa-eye"></i>
+            <% end %>
+          </div>
           <%= link_to "Publish", "#", class: "mx-1 btn btn-yellow"%>
         <%= link_to "Upgrade", "#", class: "mx-4 btn btn-outline-secondary"%>
         <%= image_tag "https://upload-icon.s3.us-east-2.amazonaws.com/uploads/icons/png/16671574911586787867-512.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>

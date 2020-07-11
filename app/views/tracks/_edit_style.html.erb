@@ -3,14 +3,17 @@
     <div class="row">
       <p>Customize your track here</p>
     </div>
-    <div class="row">
-      <p>Upload your company Logo</p>
-      <% if @track.photo.attached? %>
-        <%= cl_image_path @track.photo.key, height: 300, width: 400, crop: :fill %>
-      <% else %>
-        <img src="" alt="" class="rounded-circle" style="border-color: black">
-        <span class="border border-dark rounded-circle"></span>
-      <% end %>
+    <div class="row" style="flex-direction: column">
+      <p>Upload your Logo</p>
+        <div style="display: flex; height: 100px; justify-content: space-evenly;">
+          <% if @track.photo.attached? %>
+            <%= cl_image_tag @track.photo.key, style:"width: 40%; height: auto; object-fit: contain; object-position: center;", class:"rounded-circle" %>
+          <% else %>
+            <%= image_tag "logo.jpg", alt: "alttext", style:"height: auto; width: 30%; object-fit: contain; object-position: center", class:"rounded-circle" %>
+<!--             <img src="" alt="" class="rounded-circle" style="height: 100%; width: 100%; object-fit: contain; object-position: center; border-color: black"> -->
+          <% end %>
+          <%= link_to 'Upload your logo', edit_track_path, class:"btn btn-yellow", style:"height: max-content; margin: auto 0", data:{ toggle:"modal", target:"#exampleModalCenter-bis" }%>
+        </div>
     </div>
     <div class="row">
       <p>Choose your color theme</p>
@@ -33,10 +36,6 @@
     <p>Ecran preview</p>
   </div>
 </div>
-
-     <button type="button" class="btn btn-dark p-0" data-toggle="modal" data-target="#exampleModalCenter-bis">
-        Upload your company logo
-      </button>
 
       <div class="modal fade" id="exampleModalCenter-bis" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">

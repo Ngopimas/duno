@@ -34,3 +34,6 @@ document.addEventListener('turbolinks:load', () => {
   // initSelect2();
   initScrollReveal();
 });
+
+require("trix")
+require("@rails/actiontext")

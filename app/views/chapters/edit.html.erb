@@ -46,11 +46,7 @@
 
   <div class="col-6 card">
     <div class= "mx-auto py-5">
-      <%= simple_form_for [@track, @chapter] do |f| %>
-        <%= f.input :title, label: "Title" %>
-        <%= f.input :content, as: :rich_text_area, label: "Content" %>
-        <%= f.button :submit, "Edit my chapter",  class: "btn btn-primary btn-lg mt-5" %>
-      <% end %>
+      <%= render 'chapters/edit_chapters_form' %>
     </div>
       <div class= "mx-auto">
 

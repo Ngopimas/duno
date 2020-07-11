@@ -53,8 +53,12 @@
       </div>
   </div>
   <div class="col-4 card">
-       <div class="smartphone">
-      <div class="inside-content">
+    <div class="smartphone">
+      <div class="inside-content p-3 overflow-auto">
+      <% if !@track.chapters.last.nil? %>
+        <h3> <%= @chapter.title %> </h3>
+        <%= @chapter.content %>
+      <% end %>
       </div>
     </div>
   </div>

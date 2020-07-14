@@ -58,11 +58,6 @@
         <% if !@track.chapters.last.nil? %>
           <h3> <%= @chapter.title %> </h3>
           <%= @chapter.content %>
-          <% @chapter.content.embeds.each do |embed| %>
-            <% if embed.video? %>
-              <%= video_tag rails_blob_path(embed), size: "150x120", controls: true %>
-            <% end %>
-          <% end %>
         <% end %>
       </div>
     </div>

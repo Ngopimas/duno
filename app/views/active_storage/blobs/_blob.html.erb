@@ -2,7 +2,7 @@
   <% if blob.representable? %>
     <% if blob.video? %>
       <video controls width="300">
-        <source src="<%= rails_blob_path(blob) %>" type="video/mp4" />
+        <source src="<%= rails_blob_path blob %>" type="video/mp4" />
       </video>
     <% else %>
       <%= image_tag blob.representation(resize_to_limit: local_assigns[:in_gallery] ? [ 800, 600 ] : [ 1024, 768 ]) %>

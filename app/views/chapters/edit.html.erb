@@ -55,16 +55,15 @@
   <div class="col-4 card">
     <div class="smartphone">
       <div class="inside-content p-3 overflow-auto">
-      <% if !@track.chapters.last.nil? %>
-        <h3> <%= @chapter.title %> </h3>
-        <% @chapter.content.embeds.each do |embed| %>
-          <% if embed.image? %>
-            <%= image_tag embed %>
-          <% elsif embed.video? %>
-            <%= video_tag embed %>
+        <% if !@track.chapters.last.nil? %>
+          <h3> <%= @chapter.title %> </h3>
+          <%= @chapter.content %>
+          <% @chapter.content.embeds.each do |embed| %>
+            <% if embed.video? %>
+              <%= video_tag rails_blob_path(embed), size: "150x120", controls: true %>
+            <% end %>
           <% end %>
         <% end %>
-      <% end %>
       </div>
     </div>
   </div>

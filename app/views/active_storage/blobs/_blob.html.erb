@@ -1,10 +1,9 @@
 <figure class="attachment attachment--<%= blob.representable? ? "preview" : "file" %> attachment--<%= blob.filename.extension %>">
   <% if blob.representable? %>
     <% if blob.video? %>
-      <video width="1024" height="768" controls>
-        <source src="<%= blob.service_url %>" type="video/mp4">
+      <video controls width="300">
+        <source src="<%= rails_blob_path(blob) %>" type="video/mp4" />
       </video>
-      <%= blob.service_url %>
     <% else %>
       <%= image_tag blob.representation(resize_to_limit: local_assigns[:in_gallery] ? [ 800, 600 ] : [ 1024, 768 ]) %>
     <% end %>

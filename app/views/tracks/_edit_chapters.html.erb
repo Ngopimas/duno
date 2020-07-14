@@ -61,8 +61,9 @@
     <div class="smartphone">
       <div class="inside-content p-3 overflow-auto">
         <% if !@track.chapters.last.nil? %>
-          <h3> <%= @chapter.title %> </h3>
-          <% @chapter.content.embeds.each do |embed| %>
+          <h3> <%= @track.chapters.last.title %> </h3>
+          <%= @track.chapters.last.content %>
+          <% @track.chapters.last.content.embeds.each do |embed| %>
             <% if embed.video? %>
               <%= video_tag rails_blob_path(embed), size: "150x120", controls: true %>
             <% end %>

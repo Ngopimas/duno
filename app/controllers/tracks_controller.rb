@@ -39,6 +39,7 @@ class TracksController < ApplicationController
   end
 
   def update
+    @track = Track.find(params[:id])
     if @track.update(track_params)
       redirect_to edit_track_path(@track)
     else
@@ -54,6 +55,6 @@ class TracksController < ApplicationController
 
   private
   def track_params
-    params.require(:track).permit(:title, :description)
+    params.require(:track).permit(:title, :description, :photo)
   end
 end

@@ -9,7 +9,11 @@
     <div class="inside-content overflow-auto" id="preview-body">
     <% if !@track.chapters.last.nil? %>
       <div class="p-3 d-flex justify-content-between align-text-top">
-        <h3>Mon logo</h3>
+        <% if @track.photo.attached? %>
+          <%= cl_image_tag @track.photo.key, style:"width: 15%; height: auto; object-fit: contain; object-position: center;", class:"rounded-circle" %>
+        <% else %>
+          <%= image_tag "logo.jpg", alt: "alttext", style:"height: auto; width: 15%; object-fit: contain; object-position: center", class:"rounded-circle" %>
+        <% end %>
         <p>Mon statut</p>
       </div>
       <div class="p-3">

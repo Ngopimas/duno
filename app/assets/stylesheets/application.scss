@@ -18,3 +18,14 @@ html, body {
     max-width: 100%;
     overflow-x: hidden;
 }
+
+.sticky-top {
+  position: sticky;
+  top: 0;
+}
+
+.sticky-bottom {
+  position: sticky;
+  bottom: 0;
+
+}

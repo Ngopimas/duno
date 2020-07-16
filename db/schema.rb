@@ -53,6 +53,7 @@ ActiveRecord::Schema.define(version: 2020_07_11_080339) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "rank"
+    t.integer "position"
     t.index ["track_id"], name: "index_chapters_on_track_id"
   end
 

@@ -36,8 +36,8 @@ document.addEventListener('turbolinks:load', () => {
   initScrollReveal();
 });
 
-
-
+require("trix")
+require("@rails/actiontext")
 
 //= require jquery
 //= require jquery_ujs

@@ -40,7 +40,6 @@
             <%= simple_form_for [@track, @chapter]  do |f| %>
               <%= f.input :rank, label: "Number" %>
               <%= f.input :title, label: "Title" %>
-              <%= f.input :content, label: "Content" %>
           </div>
           <div class="modal-footer">
               <%= f.button :submit, "Add the chapter",  class: "btn btn-primary" %>
@@ -53,31 +52,25 @@
   </div>
 
   <div class="col-6 card">
-    <!--  <div class= "mx-auto py-5">
-      <p>Choose your media</p>
-    </div>
     <div class= "mx-auto">
-      <p>Icons</p>
-    </div> -->
-      <div class= "mx-auto">
-        <div class= "mx-auto py-5">
-           <% if !@track.chapters.last.nil? %>
-              <%= simple_form_for [@track, @track.chapters.last] do |f| %>
-                <%= f.input :title, label: "Title" %>
-                <%= f.input :content, label: "Content" %>
-                <%= f.button :submit, "Edit my chapter",  class: "btn btn-primary btn-lg mt-5" %>
-              <% end %>
+      <div class= "mx-auto py-5">
+         <% if !@track.chapters.last.nil? %>
+            <%= simple_form_for [@track, @track.chapters.last] do |f| %>
+              <%= f.input :title, label: "Title" %>
+              <%= f.input :content, as: :rich_text_area, label: "Content" %>
+              <%= f.button :submit, "Edit my chapter",  class: "btn btn-primary btn-lg mt-5" %>
             <% end %>
-            </div>
+          <% end %>
+      </div>
     </div>
   </div>
   <div class="col-4 card">
     <div class="smartphone">
-      <div class="inside-content p-3">
-      <% if !@track.chapters.last.nil? %>
-        <h3> <%= @track.chapters.last.title %> </h3>
-        <%= @track.chapters.last.content %>
-      <% end %>
+      <div class="inside-content p-3 overflow-auto">
+        <% if !@track.chapters.last.nil? %>
+          <h3> <%= @track.chapters.last.title %> </h3>
+          <%= @track.chapters.last.content %>
+        <% end %>
       </div>
     </div>
   </div>

@@ -1,0 +1,12 @@
+  .navbar{
+    .nav-link {
+      color: $gray;
+      font-weight: 400;
+    }
+    .nav-link.active {
+      color: $gray;
+      background-color: transparent;
+      border-bottom: 3px solid $yellow;
+      padding-bottom: 5px;
+    }
+  }

@@ -28,9 +28,20 @@ import "bootstrap";
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 import { initScrollReveal } from '../plugins/init_scroll_reveal';
+import Sortable from 'sortablejs';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
   initScrollReveal();
 });
+
+
+
+
+//= require jquery
+//= require jquery_ujs
+//= require jquery-ui/widgets/sortable
+//= require rails_sortable
+
+import "controllers"

@@ -39,9 +39,14 @@ class ChaptersController < ApplicationController
     end
   end
 
+  def move
+    @chapter = Chapter.find(params[:id])
+    @chapter.insert_at(params[:position].to_i)
+  end
+
   private
 
   def chapter_params
-    params.require(:chapter).permit(:title, :content, :rank)
+    params.require(:chapter).permit(:title, :content, :position)
   end
 end

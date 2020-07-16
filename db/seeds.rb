@@ -53,7 +53,6 @@ Track.find_each do |track|
   rand(3..10).times do |i|
     chapter = Chapter.create!(
         title: Faker::Lorem.word,
-        content: Faker::Lorem.paragraphs.join(" "),
         track_id: track.id,
         rank: i + 1
       )

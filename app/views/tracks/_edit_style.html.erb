@@ -1,10 +1,9 @@
-<div class="row">
+<div class="row vh-100">
   <div class="col-6 card">
     <div class="row">
-      <p>Customize your track here</p>
+      <h6 class="text-center">Customize your track</h6>
     </div>
     <div class="row" style="flex-direction: column">
-      <p>Upload your Logo</p>
         <div style="display: flex; height: 100px; justify-content: space-evenly;">
           <% if @track.photo.attached? %>
             <%= cl_image_tag @track.photo.key, style:"width: 40%; height: auto; object-fit: contain; object-position: center;", class:"rounded-circle" %>
@@ -16,10 +15,10 @@
         </div>
     </div>
     <div class="row">
-      <p>Choose your color theme</p>
+      <h6>Colors</h6>
     </div>
     <div class="row">
-      <p>Choose your font theme</p>
+      <h6>Font</h6>
         <div class="dropdown">
           <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Dropdown button

@@ -8,7 +8,7 @@
               <div class="p-2">
                         <p style="width:40px; height:40px; font-weight:bold; background-color:#747575; border-radius:5px; text-align:center; color: white;"> <%= chapter.position %> </p>
               </div>
-              <div class="ml-auto p-2">
+              <div class="p-2">
                 <p style="font-size: 14px;"> <strong> <%=link_to chapter.title, edit_track_chapter_path(@track, chapter) %> </strong></p>
               </div>
             </div>
@@ -30,15 +30,15 @@
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
-            <%= simple_form_for [@track, @chapter]  do |f| %>
-              <div class="modal-body">
-                <%= f.input :title, label: "Title" %>
-              </div>
-              <div class="modal-footer">
-                <%= f.button :submit, "Add the chapter",  class: "btn btn-primary" %>
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-              </div>
+          <div class="modal-body">
+            <%= simple_form_for [@track, @chapter_new]  do |f| %>
+              <%= f.input :title, label: "Title" %>
+          </div>
+          <div class="modal-footer">
+              <%= f.button :submit, "Add the chapter",  class: "btn btn-primary" %>
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
             <% end %>
+          </div>
         </div>
       </div>
     </div>
@@ -47,26 +47,15 @@
   <div class="col-6 card">
     <div class= "mx-auto">
       <div class= "mx-auto py-5">
-         <% if !@track.chapters.last.nil? %>
-            <%= simple_form_for [@track, @track.chapters.last] do |f| %>
-              <%= f.input :title, label: "Title" %>
-              <%= f.input :content, as: :rich_text_area, label: "Content" %>
-              <%= f.button :submit, "Edit my chapter",  class: "btn btn-primary btn-lg mt-5" %>
-            <% end %>
-          <% end %>
+        <%= render 'chapters/edit_chapters_form' %>
       </div>
     </div>
   </div>
   <div class="col-4 card">
     <div class="smartphone">
-      <div class="inside-content">
-        <%= render 'tracks/edit_preview_header' %>
-        <% if !@track.chapters.last.nil? %>
-          <div class="p-3">
-            <h3> <%= @track.chapters.last.title %> </h3>
-            <%= @track.chapters.last.content %>
-          </div>
-        <% end %>
+      <div class="inside-content p-3 overflow-auto">
+        <h3> <%= @chapter.title %> </h3>
+          <%= @chapter.content %>
       </div>
     </div>
   </div>

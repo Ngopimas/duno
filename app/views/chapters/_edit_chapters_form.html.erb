@@ -1,5 +1,7 @@
-<%= simple_form_for [@track, @chapter]  do |f| %>
-  <%= f.input :title, label: "Title" %>
-  <%= f.input :content, as: :rich_text_area, label: "Content" %>
-  <%= f.button :submit, "Edit my chapter",  class: "btn btn-primary btn-lg mt-5" %>
+<%= simple_form_for ([@track, @chapter])  do |f| %>
+  <%= f.input :title, label: "Title", style: 'width:100%; margin-bottom:30px;' %>
+  <%= f.input :content, as: :rich_text_area, label: "Content", style: 'width:800px; margin-bottom:30px;' %>
+  <%= f.button :submit, "Update chapter",  class: "btn btn-primary btn-lg mt-5" %>
 <% end %>
+
+

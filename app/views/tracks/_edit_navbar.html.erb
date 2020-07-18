@@ -1,11 +1,14 @@
 
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon mx-4">
-  <div>
+  <div class="d-flex">
 
     <%= link_to tracks_path do %>
       <i class="fas fa-arrow-left mx-2 "></i>
     <% end %>
-    <%= @track.title %>
+    <%= form_for(@track, remote: true) do |f| %>
+      <%= f.text_field :title, :style => 'width:400px; background-color:#FDF9F3; border-style: none;' %>
+    <% end %>
+<!--     <%= @track.title %> -->
   </div>
 
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

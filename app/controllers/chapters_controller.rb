@@ -27,6 +27,7 @@ class ChaptersController < ApplicationController
   def edit
     @chapter = Chapter.find(params[:id])
     @track = @chapter.track
+    @chapter_new = Chapter.new
   end
 
   def update

@@ -1,96 +1,71 @@
 <!-- Navbar view edit  -->
-
-<%= render 'chapters/edit_navbar' %>
-
-<!-- Body view edit  -->
+<div id="navbar-edit">
+  <%= render 'tracks/edit_navbar' %>
+</div>
 
 <div class="tab-content" id="pills-tabContent">
+  <div class="tab-pane fade show active" id="pills-build" role="tabpanel" aria-labelledby="pills-build-tab">
+    <div class="d-flex">
 
-  <!-- Onglet BUILD  -->
-  <div class="d-flex tab-pane fade show active row" id="pills-build" role="tabpanel" aria-labelledby="pills-build-tab">
-
-    <!-- Navbar de l'onglet BUILD  -->
-
-    <div class="nav flex-column nav-pills col-1 text-center" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-      <a class="nav-link active" id="v-pills-chapters-tab" data-toggle="pill" href="#v-pills-chapters" role="tab" aria-controls="v-pills-chapters" aria-selected="true"><i class="far fa-edit"></i></a>
-      <a class="nav-link" id="v-pills-style-tab" data-toggle="pill" href="#v-pills-style" role="tab" aria-controls="v-pills-style" aria-selected="false"><i class="fas fa-palette"></i></a>
-      <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false"><i class="fas fa-cog"></i></a>
-    </div>
-
-    <!-- Body de l'onglet BUILD  -->
-
-    <div class="tab-content col-11" id="v-pills-tabContent">
-      <div class="tab-pane fade show active" id="v-pills-chapters" role="tabpanel" aria-labelledby="v-pills-chapters-tab">
-        <!-- Insérer ici le code du sous-onglet CHAPTERS  -->
-
-<div class="row min-vh-100">
-  <div class="col-2 card card-chapter">
-    <div class="row justify-content-start">
-
-      <div class="col-4 justify-content-center align-self-center">
-        <% @track.chapters.each do |chapter| %>
-          <p style="width:40px; height:40px; font-weight:bold; background-color:#747575; border-radius:5px; text-align:center; color: white;"> <%= chapter.rank %>  </p>
-        <% end %>
+      <!-- Navbar de l'onglet BUILD  -->
+      <div class="p-0" style="text-align: center; width:5%;">
+        <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+          <a class="nav-link active" id="v-pills-chapters-tab" data-toggle="pill" href="#v-pills-chapters" role="tab" aria-controls="v-pills-chapters" aria-selected="true"><i class="far fa-edit"></i></a>
+          <a class="nav-link" id="v-pills-style-tab" data-toggle="pill" href="#v-pills-style" role="tab" aria-controls="v-pills-style" aria-selected="false"><i class="fas fa-palette"></i></a>
+          <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false"><i class="fas fa-cog"></i></a>
+        </div>
       </div>
 
-         <div class="col-8 justify-content-center align-self-center">
-        <% @track.chapters.each do |chapter| %>
-          <p style="height:40px; font-weight:bold; "> <%= link_to chapter.title, edit_track_chapter_path(@track, chapter) %>  </p>
-         <% end %>
-      </div>
-    </div>
-        <button type="button" class="btn btn-dark p-0" style="font-weight:bold; font-size:1.5em; width:40px; height:40px;" data-toggle="modal" data-target="">
-      +
-    </button>
- </div>
+      <!-- Body de l'onglet BUILD  -->
+      <div class="ml-3" style="width:95%;">
+        <div class="tab-content" id="v-pills-tabContent">
+          <!-- Insérer ici le code du sous-onglet CHAPTERS  -->
+          <div class="tab-pane fade show active" id="v-pills-chapters" role="tabpanel" aria-labelledby="v-pills-chapters-tab">
+            <%= render 'chapters/edit_chapters' %>
+          </div>
 
-  <div class="col-6 card">
-    <div class= "mx-auto py-5">
-      <%= render 'chapters/edit_chapters_form' %>
-    </div>
-      <div class= "mx-auto">
+          <!-- Insérer ici le code du sous-onglet STYLE  -->
+          <div class="tab-pane fade" id="v-pills-style" role="tabpanel" aria-labelledby="v-pills-style-tab">
+            <%= render 'tracks/edit_style' %>
+          </div>
 
-      </div>
-  </div>
-  <div class="col-4 card">
-    <div class="smartphone">
-      <div class="inside-content p-3 overflow-auto">
-        <% if !@track.chapters.last.nil? %>
-          <h3> <%= @chapter.title %> </h3>
-          <%= @chapter.content %>
-        <% end %>
+          <!-- Insérer ici le code du sous-onglet SETTINGS  -->
+          <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
+            <%= render 'tracks/edit_settings' %>
+          </div>
+
+        </div>
       </div>
     </div>
   </div>
-</div>
-
-
-      <div class="tab-pane fade" id="v-pills-style" role="tabpanel" aria-labelledby="v-pills-style-tab">
-        <!-- Insérer ici le code du sous-onglet STYLE  -->
-        <%= render 'tracks/edit_style' %>
-
-      </div>
-      <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
-        <!-- Insérer ici le code du sous-onglet SETTINGS  -->
-
-      </div>
-    </div>
-  </div>
-
 
   <!-- Onglet SHARE  -->
-  <div class="d-flex tab-pane fade" id="pills-share" role="tabpanel" aria-labelledby="pills-share-tab">
+  <div class="tab-pane fade" id="pills-share" role="tabpanel" aria-labelledby="pills-share-tab">
     <!-- Insérer ici le code de l'onglet SHARE  -->
-
+    <%= render 'tracks/share' %>
   </div>
-
 
   <!-- Onglet OVERVIEW  -->
-  <div class="d-flex tab-pane fade" id="pills-overview" role="tabpanel" aria-labelledby="pills-overview-tab">
+  <div class="tab-pane fade" id="pills-overview" role="tabpanel" aria-labelledby="pills-overview-tab">
     <!-- Insérer ici le code de l'onglet OVERVIEW  -->
-
+    <%= render 'tracks/overview' %>
   </div>
+
+    <!-- Onglet PREVIEW  -->
+  <div class="tab-pane fade" id="pills-preview" role="tabpanel" aria-labelledby="pills-preview-tab">
+    <!-- Insérer ici le code de l'onglet PREVIEW  -->
+    <%= render 'tracks/edit_preview' %>
+  </div>
+
 </div>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.0/jquery.min.js"></script>
 
+<script>
+  $(document).ready(function(){
+      $('#pills-preview-tab').click(function() {
+        $('#navbar-edit').toggle("slide");
+      });
+  });
+</script>
 

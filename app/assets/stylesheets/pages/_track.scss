@@ -8,6 +8,9 @@
   .yellow-line {
     font-size: 40px;
     position: relative;
+    width: fit-content;
+    margin: 0 auto 0.75rem;
+    padding: 0 15px;
   }
     .yellow-line:before {
       content: "";
@@ -27,5 +30,5 @@
   // }
 
 .fa-star-yellow {
-  color: rgb(248,206,70);
+  color: $yellow;
 }

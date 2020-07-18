@@ -36,16 +36,16 @@
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
-          <div class="modal-body">
             <%= simple_form_for [@track, @chapter]  do |f| %>
-              <%= f.input :rank, label: "Number" %>
-              <%= f.input :title, label: "Title" %>
-          </div>
-          <div class="modal-footer">
-              <%= f.button :submit, "Add the chapter",  class: "btn btn-primary" %>
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+              <div class="modal-body">
+                <%= f.input :rank, label: "Number" %>
+                <%= f.input :title, label: "Title" %>
+              </div>
+              <div class="modal-footer">
+                <%= f.button :submit, "Add the chapter",  class: "btn btn-primary" %>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+              </div>
             <% end %>
-          </div>
         </div>
       </div>
     </div>

@@ -10,7 +10,6 @@ class ChaptersController < ApplicationController
 
   def create
     @chapter = Chapter.new(chapter_params)
-    # we need `restaurant_id` to associate review with corresponding restaurant
     @track = Track.find(params[:track_id])
     @chapter.track = @track
     if @chapter.save

@@ -29,11 +29,14 @@ import "bootstrap";
 // import { initSelect2 } from '../components/init_select2';
 import { initScrollReveal } from '../plugins/init_scroll_reveal';
 import Sortable from 'sortablejs';
+import updateBtn from '../plugins/update_btn';
+import "controllers"
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
   initScrollReveal();
+  updateBtn();
 });
 
 require("trix")
@@ -44,4 +47,3 @@ require("@rails/actiontext")
 //= require jquery-ui/widgets/sortable
 //= require rails_sortable
 
-import "controllers"

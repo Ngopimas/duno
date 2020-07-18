@@ -66,10 +66,13 @@
   </div>
   <div class="col-4 card">
     <div class="smartphone">
-      <div class="inside-content p-3 overflow-auto">
+      <div class="inside-content">
+        <%= render 'tracks/edit_preview_header' %>
         <% if !@track.chapters.last.nil? %>
-          <h3> <%= @track.chapters.last.title %> </h3>
-          <%= @track.chapters.last.content %>
+          <div class="p-3">
+            <h3> <%= @track.chapters.last.title %> </h3>
+            <%= @track.chapters.last.content %>
+          </div>
         <% end %>
       </div>
     </div>

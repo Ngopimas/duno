@@ -32,3 +32,12 @@
 .fa-star-yellow {
   color: $yellow;
 }
+
+.no-line {
+            a{
+            text-decoration: none;
+            &:hover {
+            background: transparent;
+    }
+          }
+}

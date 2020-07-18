@@ -14,6 +14,7 @@ class ChaptersController < ApplicationController
     @track = Track.find(params[:track_id])
     @chapter.track = @track
     if @chapter.save
+      chapter_subscriptions(@track, @chapter)
       redirect_to edit_track_path(@track)
     else
       render :new
@@ -46,6 +47,12 @@ class ChaptersController < ApplicationController
   end
 
   private
+
+  def chapter_subscriptions(track, chapter)
+    track.subscriptions.each do |subscription|
+      ChapterSubscription.create(subscription: subscription, chapter: chapter)
+    end
+  end
 
   def chapter_params
     params.require(:chapter).permit(:title, :content, :position)

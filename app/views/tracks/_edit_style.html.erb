@@ -15,13 +15,13 @@
     </div>
     <div class="row">
       <%= simple_form_for @track do |f| %>
-        <%= f.input :color_theme, label: "Choose your color theme", collection: [["#blue", "#8CB3DB"], ["#blue", "#8CB3DB"], ["#8CB3DB", "blue"], ["#8CB3DB", "blue"], ["#8CB3DB", "blue"], ["#8CB3DB", "blue"]] %>
+        <%= f.input :color_theme, label: "Choose your color theme", collection: [["Blue", "#8CB3DB"], ["Green", "#A5D0A8"], ["Yellow", "#FFCD00"], ["Orange", "#F79D85"], ["Red", "#FD1015"], ["Grey", "#0E0000"]] %>
         <%= f.button :submit, "Validate this color theme",  class: "btn btn-primary btn-lg mt-5" %>
       <% end %>
     </div>
     <div class="row">
       <%= simple_form_for @track do |f| %>
-        <%= f.input :font_theme, label: "Choose your font theme", collection: ["Times New Roman", "Helvetica", "Palatino", "FreeMono", "Chancery cursive"] %>
+        <%= f.input :font_theme, label: "Choose your font theme", collection: [["Times New Roman", "Times New Roman, Times, serif"], ["Helvetica", "Arial, Helvetica, sans-serif"], ["Comic sans ms","Comic sans ms"], ["Montserrat","Montserrat"], ["Chancery cursive","Chancery"]] %>
         <%= f.button :submit, "Validate this font theme",  class: "btn btn-primary btn-lg mt-5" %>
       <% end %>
     </div>

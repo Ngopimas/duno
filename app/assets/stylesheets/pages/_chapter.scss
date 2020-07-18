@@ -1,0 +1,53 @@
+.active-chapter-link {
+      color: $white;
+
+}
+
+.active-chapter-row {
+      background-color: $yellow;
+
+      a{
+        text-decoration: none;
+        &:hover {
+        background: transparent;
+        }
+      }
+
+
+}
+
+
+
+.table-chapter {
+                border-collapse:separate;
+                border-spacing:0 15px;
+                table-layout: fixed ;
+                width: 100% ;
+                height: 20px ;
+            }
+
+th {
+          width: 150px ;
+          text-align:center;
+          border:none;
+          padding:5px
+
+        }
+td {
+          width: 100% ;
+          height: 20px ;
+          text-align:center;
+          border:none;
+          padding:5px;
+          overflow: hidden;
+
+}
+
+.no-line {
+            a{
+            text-decoration: none;
+            &:hover {
+            background: transparent;
+    }
+          }
+}

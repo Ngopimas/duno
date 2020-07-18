@@ -28,6 +28,7 @@ class ChaptersController < ApplicationController
     @chapter = Chapter.find(params[:id])
     @track = @chapter.track
     @chapter_new = Chapter.new
+    @name_url = params[:inputPassword2]
   end
 
   def update

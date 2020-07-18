@@ -69,8 +69,15 @@
         <%= render 'tracks/edit_preview_header' %>
         <% if !@track.chapters.last.nil? %>
           <div class="p-3">
-            <h3> <%= @track.chapters.last.title %> </h3>
-            <%= @track.chapters.last.content %>
+            <div class="d-flex sticky-top py-2" style="background-color: rgba(255,255,255);">
+              <div class="back-chapters btn font-weight-bold mr-2" style="color:#FFCD00; font-size:1.5em;">
+                <
+              </div>
+              <h4 style="font-weight: bold;"><%= @track.chapters.last.title %></h4>
+            </div>
+            <div style="text-align: justify; text-justify: word-spacing;">
+              <%= @track.chapters.last.content %>
+            </div>
           </div>
         <% end %>
       </div>

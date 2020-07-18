@@ -9,39 +9,22 @@
             <%= cl_image_tag @track.photo.key, style:"width: 40%; height: auto; object-fit: contain; object-position: center;", class:"rounded-circle" %>
           <% else %>
             <%= image_tag "logo.jpg", alt: "alttext", style:"height: auto; width: 30%; object-fit: contain; object-position: center", class:"rounded-circle" %>
-<!--             <img src="" alt="" class="rounded-circle" style="height: 100%; width: 100%; object-fit: contain; object-position: center; border-color: black"> -->
           <% end %>
           <%= link_to 'Upload your logo', edit_track_path, class:"btn btn-yellow", style:"height: max-content; margin: auto 0", data:{ toggle:"modal", target:"#exampleModalCenter-bis" }%>
         </div>
     </div>
     <div class="row">
-      <div class="dropdown">
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Choose your color theme
-        </button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <a class="dropdown-item" href="#" style="background-color: blue">Blue</a>
-          <a class="dropdown-item" href="#" style="background-color: green">Green</a>
-          <a class="dropdown-item" href="#" style="background-color: yellow">Yellow</a>
-          <a class="dropdown-item" href="#" style="background-color: orange">Orange</a>
-          <a class="dropdown-item" href="#" style="background-color: red">Red</a>
-          <a class="dropdown-item" href="#" style="background-color: violet">Violet</a>
-        </div>
+        <%= simple_form_for @track do |f| %>
+          <%= f.input :color_theme, label: "Choose your color theme", collection: ["Blue", "Green", "Red", "Yellow", "Orange", "Violet"] %>
+          <%= f.button :submit, "Validate this color theme",  class: "btn btn-primary btn-lg mt-5" %>
+        <% end %>
       </div>
     </div>
     <div class="row">
-        <div class="dropdown">
-          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Choose your font theme
-          </button>
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" href="#" style="font-family: 'Times New Roman', Times, serif">Times New Roman</a>
-            <a class="dropdown-item" href="#" style="font-family: 'Helvetica', sans-serif">Helvetica</a>
-            <a class="dropdown-item" href="#" style="font-family: Palatino, URW Palladio L, serif">Palatino</a>
-            <a class="dropdown-item" href="#" style="font-family: FreeMono, monospace">FreeMono</a>
-            <a class="dropdown-item" href="#" style="font-family: URW Chancery L, cursive ">Chancery cursive</a>
-          </div>
-        </div>
+      <%= simple_form_for @track do |f| %>
+        <%= f.input :font_theme, label: "Choose your font theme", collection: ["Times New Roman", "Helvetica", "Palatino", "FreeMono", "Chancery cursive"] %>
+        <%= f.button :submit, "Validate this font theme",  class: "btn btn-primary btn-lg mt-5" %>
+      <% end %>
     </div>
   </div>
   <div class="col-6 card">
@@ -70,3 +53,4 @@
           </div>
         </div>
       </div>
+

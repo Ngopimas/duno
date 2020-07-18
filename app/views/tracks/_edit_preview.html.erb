@@ -24,7 +24,7 @@
           </div>
           <div id="chapter-content-<%= chapter.id %>" class="chapter-content" style="display: none;">
             <div class="d-flex sticky-top py-2" style="background-color: rgba(255,255,255,0.9);">
-              <div class="back-chapters btn btn-primary mr-2" style="">
+              <div class="back-chapters btn font-weight-bold mr-2" style="color:#FFCD00; font-size:1.5em;">
                 <
               </div>
               <h4 style="font-weight: bold;"><%= chapter.title %></h4>
@@ -48,13 +48,11 @@
 
 <script>
   $(document).ready(function(){
-    console.log($('#pills-tab'));
     $('.chapter-tab').click(function() {
       const target = $(this)[0].dataset.target;
       $(target).show();
       $(".current-chapter").removeClass("current-chapter");
       $(target)[0].classList.add("current-chapter");
-      console.log($(target)[0].offsetHeight);
       $('.chapter-tab').hide();
       $('.track-title').hide();
       $('.back-chapters').show();
@@ -67,19 +65,9 @@
     });
   });
 
-  console.log($(".chapter-content"));
-
   $('.inside-content').scroll(function() {
     const button = $('.btn-disabled');
     button.removeClass('btn-disabled').addClass("btn-active");
-    // console.log($('.current-chapter')[0].offsetHeight);
-    // console.log($('.inside-content')[0].offsetHeight);
-    // if($('.inside-content').scrollTop >= 0) {
-    //   button.removeClass('btn-disabled').addClass("btn-active");
-    //   console.log('scroll en cours');
-    // } else {
-    //   button.removeClass("btn-active").addClass('btn-disabled');
-    // }
   });
 
 </script>

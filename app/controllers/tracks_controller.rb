@@ -41,7 +41,7 @@ class TracksController < ApplicationController
   def update
     @track = Track.find(params[:id])
     if @track.update(track_params)
-      redirect_to edit_track_path(@track)
+      redirect_to edit_track_path(@track, toto:"toto")
     else
       render :edit
     end
@@ -55,6 +55,6 @@ class TracksController < ApplicationController
 
   private
   def track_params
-    params.require(:track).permit(:title, :description, :photo)
+    params.require(:track).permit(:title, :description, :photo, :color_theme, :font_theme)
   end
 end

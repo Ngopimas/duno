@@ -41,3 +41,22 @@
     }
           }
 }
+
+#wrapper-form {
+  form, .logo-upload{
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    align-items: flex-end;
+    margin-bottom: 60px;
+  }
+  .form-group {
+    margin-bottom: 0;
+  }
+  img {
+    width: 150px;
+    height: 150px;
+    object-fit: contain;
+    object-position: center;
+  }
+}

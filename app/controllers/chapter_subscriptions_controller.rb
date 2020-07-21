@@ -6,5 +6,10 @@ class ChapterSubscriptionsController < ApplicationController
     else
       @chapter_subscription.update(read: true)
     end
+    @track = @chapter_subscription.subscription.track
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 end

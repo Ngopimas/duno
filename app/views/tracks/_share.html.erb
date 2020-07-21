@@ -1,12 +1,20 @@
 <div class="row justify-content-center h-100">
 <div class="col-md-6 sticky-top">
-      <h2 class="py-5"> Share your track with the world!</h2>
+      <h2 class = "py-5"> Share your track with the world!</h2>
 </div>
 </div>
+<div class="row justify-content-center h-100">
+<div class="col-md-6 sticky-top">
+      <h6> Your URL </h6>
+
+</div>
+</div>
+
   <div class="row justify-content-center text-center h-100">
     <div class="col-md-6 sticky-top">
       <div class="input-group mb-3">
-        <input type="text" class="form-control" placeholder="https//mytrack.com" aria-label="https//mytrack.com" aria-describedby="basic-addon2">
+        <input type="text" class="form-control" placeholder="https://<%= @track.title.parameterize %>.duno.com/<%= (0...6).map { ('a'..'z').to_a[rand(26)] }.join%>
+" aria-label="https//mytrack.com" aria-describedby="basic-addon2">
         <div class="input-group-append">
           <button class="btn btn-yellow" type="button"> Copy </button>
         </div>

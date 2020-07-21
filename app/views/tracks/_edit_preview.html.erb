@@ -24,7 +24,7 @@
           </div>
           <div id="chapter-content-<%= chapter.id %>" class="chapter-content" style="display: none;">
             <div class="d-flex sticky-top py-2" style="background-color: rgba(255,255,255,0.9);">
-              <div class="back-chapters btn font-weight-bold mr-2" style="color:#FFCD00; font-size:1.5em;">
+              <div class="back-chapters btn font-weight-bold btn-mr-2" style="color:#FFCD00; font-size:1.5em;">
                 <
               </div>
               <h4 style="font-weight: bold;"><%= chapter.title %></h4>
@@ -33,7 +33,13 @@
               <%= chapter.content %>
             </div>
             <div class="sticky-bottom" style="margin-top:20px;">
-              <button class="btn-disabled">Got it!</button>
+              <% @subscription = current_user.subscriptions.where(track: @track) %>
+              <% @my_chapter_subscription = ChapterSubscription.where(subscription: @subscription, chapter: chapter).last %>
+              <% if @my_chapter_subscription.read == false %>
+                <%= link_to "Got it!", chapter_subscription_path(@my_chapter_subscription), method: "patch", class:"btn btn-primary btn-lg w-100 undo-btn", id: "#{@my_chapter_subscription.id}", remote: true %>
+              <% else %>
+                <%= link_to "Undo", chapter_subscription_path(@my_chapter_subscription), method: "patch", class:"btn btn-secondary btn-lg w-100 undo-btn", id: "#{@my_chapter_subscription.id}", remote: true %>
+              <% end %>
             </div>
           </div>
         <% end %>
@@ -42,7 +48,6 @@
     </div>
   </div>
 </div>
-
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.0/jquery.min.js"></script>
 
@@ -71,3 +76,4 @@
   });
 
 </script>
+

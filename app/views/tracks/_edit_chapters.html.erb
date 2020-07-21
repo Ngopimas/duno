@@ -2,27 +2,29 @@
   <div class="col-2 bg-white card-chapter">
      <div class="flex-align">
       <div class="d-flex justify-content-between align-items-center">
-          <div data-controller="drag" data-drag-url="/tracks/:track_id/chapters/:id/move" class="table-chapter">
-            <% @track.chapters.order(position: :asc).each do |chapter| %>
-              <div data-id="<%= chapter.id %>" data-track_id="<%= chapter.track.id %>" class="mb-4 border-0 shadow-none flex-align">
-                <% if !@track.chapters.last.nil? && chapter == @track.chapters.last %>
-                  <div class="flex-align">
-                    <div class="d-flex flex-row">
-                         <div class="p-2 chapter-position"> <%= chapter.position %> </div>
-                         <div class="p-2 active-chapter-title text-justify-center text-center"> <%= chapter.title %> </div>
-                    </div>
+        <div data-controller="drag" data-drag-url="/tracks/:track_id/chapters/:id/move" class="table-chapter">
+          <% @track.chapters.order(position: :asc).each do |chapter| %>
+            <div data-id="<%= chapter.id %>" data-track_id="<%= chapter.track.id %>" class="mb-4 border-0 shadow-none flex-align">
+              <% if !@track.chapters.last.nil? && chapter == @track.chapters.last %>
+                <div class="flex-align">
+                  <div class="d-flex flex-row">
+                       <div class="p-2 chapter-position"> <%= chapter.position %> </div>
+                       <div class="p-2 active-chapter-title text-justify-center text-center"> <%= chapter.title %> </div>
                   </div>
-                <% else %>
-                  <div class="flex-align">
-                    <div class="d-flex flex-row">
-                        <div class="p-2 chapter-position"> <%= chapter.position %> </div>
-                        <div class="p-2 chapter-title text-justify-center text-center">  <%= link_to chapter.title, edit_track_chapter_path(@track, chapter) %>  </div>
-                    </div>
+                </div>
+              <% else %>
+                <div class="flex-align">
+                  <div class="d-flex flex-row">
+                      <div class="p-2 chapter-position"> <%= chapter.position %> </div>
+                      <div class="p-2 chapter-title text-justify-center text-center">  <%= link_to chapter.title, edit_track_chapter_path(@track, chapter) %>  </div>
                   </div>
-                <% end %>
-              </div>
-            <% end %>
-          </div>
+                </div>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
     <!-- Button trigger modal -->
     <button type="button" class="btn btn-dark p-0" style="font-weight:bold; font-size:1.5em; width:40px; height:40px;" data-toggle="modal" data-target="#exampleModalCenter">
       +
@@ -50,7 +52,6 @@
       </div>
     </div>
   </div>
-
   <div class="col-6 bg-white border-left">
     <div class= "mx-auto">
       <div class= "mx-auto py-5">
@@ -86,3 +87,4 @@
     </div>
   </div>
 </div>
+

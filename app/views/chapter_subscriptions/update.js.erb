@@ -1,4 +1,3 @@
-let progressBar = document.querySelector('.progress-bar')
-console.log(progressBar)
-
-progressBar.innerHTML = "<%= j render 'tracks/progress_bar', user: current_user, track: @track %>"
+document.querySelectorAll('.progress-bar-container').forEach((progressBar) => {
+  progressBar.innerHTML = "<%= j render 'tracks/progress_bar', user: current_user, track: @track %>"
+});

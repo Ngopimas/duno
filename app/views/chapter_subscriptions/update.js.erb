@@ -1,4 +1,8 @@
-let progressBar = document.querySelector('.progress-bar')
-console.log(progressBar)
+// const progressBar = document.getElementById('progress-bar-container')
+document.getElementById('progress-bar-container').insertAdjacentHTML('beforeend', "<%= j render 'tracks/progress_bar', user: current_user, track: @track %>")
+// document.getElementById('progress-bar-container').innerHTML = "<%= j render 'tracks/progress_bar', user: current_user, track: @track %>"
 
-progressBar.innerHTML = "<%= j render 'tracks/progress_bar', user: current_user, track: @track %>"
+console.log("<%= j render 'tracks/progress_bar', user: current_user, track: @track %>")
+
+// progressBar.innerHTML = "<%= j render 'tracks/progress_bar', user: current_user, track: @track %>"
+

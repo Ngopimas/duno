@@ -2,7 +2,7 @@
   <div class="col-2 bg-white card-chapter">
      <div class="flex-align">
       <div class="d-flex justify-content-between align-items-center">
-          <div data-controller="drag" data-drag-url="/tracks/:track_id/chapters/:id/move" >
+          <div data-controller="drag" data-drag-url="/tracks/:track_id/chapters/:id/move" class="table-chapter">
             <% @track.chapters.order(position: :asc).each do |chapter| %>
               <div data-id="<%= chapter.id %>" data-track_id="<%= chapter.track.id %>" class="mb-4 border-0 shadow-none flex-align">
                 <% if !@track.chapters.last.nil? && chapter == @track.chapters.last %>

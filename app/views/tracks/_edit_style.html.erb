@@ -1,38 +1,43 @@
 <div class="row vh-100">
-  <div class="col-6 card">
-    <div class="row">
-      <h6 class="text-center">Customize your track</h6>
-    </div>
-    <div class="row" style="flex-direction: column">
-        <div style="display: flex; height: 100px; justify-content: space-evenly;">
-          <% if @track.photo.attached? %>
-            <%= cl_image_tag @track.photo.key, style:"width: 40%; height: auto; object-fit: contain; object-position: center;", class:"rounded-circle" %>
-          <% else %>
-            <%= image_tag "logo.jpg", alt: "alttext", style:"height: auto; width: 30%; object-fit: contain; object-position: center", class:"rounded-circle" %>
-<!--             <img src="" alt="" class="rounded-circle" style="height: 100%; width: 100%; object-fit: contain; object-position: center; border-color: black"> -->
-          <% end %>
-          <%= link_to 'Upload your logo', edit_track_path, class:"btn btn-yellow", style:"height: max-content; margin: auto 0", data:{ toggle:"modal", target:"#exampleModalCenter-bis" }%>
-        </div>
-    </div>
-    <div class="row">
-      <h6>Colors</h6>
-    </div>
-    <div class="row">
-      <h6>Font</h6>
-        <div class="dropdown">
-          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Dropdown button
-          </button>
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <a class="dropdown-item" href="#">Something else here</a>
+  <div class="col-6 bg-white pt-4">
+    <h6 class="text-center pb-4" style="font-size: 24px; font-weight: bold">Customize your track</h6>
+    <div id="wrapper-form">
+      <div class="row">
+          <div class="logo-upload">
+            <% if @track.photo.attached? %>
+              <%= cl_image_tag @track.photo.key, class:"rounded-circle" %>
+            <% else %>
+              <%= image_tag "logo.jpg", alt: "alttext", class:"rounded-circle" %>
+            <% end %>
+            <%= link_to 'Upload your logo', edit_track_path, class:"btn btn-yellow", style:"height: max-content; margin: auto 0", data:{ toggle:"modal", target:"#exampleModalCenter-bis" }%>
           </div>
-        </div>
+      </div>
+      <div class="row">
+        <%= simple_form_for @track do |f| %>
+          <%= f.input :color_theme, label: "Choose your color theme", collection: [["Blue", "#8CB3DB"], ["Green", "#A5D0A8"], ["Yellow", "#FFCD00"], ["Orange", "#F79D85"], ["Red", "#FD1015"], ["Grey", "#0E0000"]] %>
+          <%= f.button :submit, "Validate this color theme",  class: "btn btn-primary" %>
+        <% end %>
+      </div>
+      <div class="row">
+        <%= simple_form_for @track do |f| %>
+          <%= f.input :font_theme, label: "Choose your font theme", collection: [["Times New Roman", "Times New Roman, Times, serif"], ["Helvetica", "Arial, Helvetica, sans-serif"], ["Comic sans ms","Comic sans ms"], ["Montserrat","Montserrat"], ["Chancery cursive","Chancery"]] %>
+          <%= f.button :submit, "Validate this font theme",  class: "btn btn-primary" %>
+        <% end %>
+      </div>
     </div>
   </div>
-  <div class="col-6 card">
-    <p>Ecran preview</p>
+  <div class="col-6 bg-white border-left pt-4">
+    <div class="smartphone" style="font-family: <%= @track.font_theme %>">
+      <div class="inside-content">
+        <%= render 'tracks/edit_preview_header' %>
+        <% if !@track.chapters.last.nil? %>
+          <div class="p-3">
+            <h3> <%= @track.chapters.last.title %> </h3>
+            <%= @track.chapters.last.content %>
+          </div>
+        <% end %>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -57,3 +62,4 @@
           </div>
         </div>
       </div>
+

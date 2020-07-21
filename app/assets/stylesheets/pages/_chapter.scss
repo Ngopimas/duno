@@ -1,10 +1,5 @@
 .active-chapter-link {
-
-
-}
-
-.active-chapter-row {
-      background-color: $yellow;
+    background-color: $yellow;
 
       a{
         text-decoration: none;
@@ -13,18 +8,16 @@
         }
       }
 
-
 }
 
 
 
+
+
 .table-chapter {
-                border-collapse:separate;
-                border-spacing:0 15px;
-                table-layout: fixed ;
-                width: 100% ;
-                height: 20px ;
-            }
+  padding-top: 8px;
+  width: 200px;
+}
 
 
 .no-line {
@@ -51,4 +44,37 @@ td {
 
 .card-chapter-title {
   background-color: $yellow;
+}
+
+.chapter-position {
+  background-color:#747575;
+  width:40px;
+  height:40px;
+  font-weight:bold;
+  text-align:center;
+  color: white;
+  justify-content:center;
+  vertical-align: middle;
+}
+
+.chapter-title {
+  font-size: 14px;
+  width:160px;
+  height:40px;
+  font-weight:bold;
+  margin-left: auto;
+  margin-right: auto;
+  vertical-align: middle;
+}
+
+.active-chapter-title {
+      background-color: $yellow;
+      font-size: 14px;
+      width:160px;
+      height:40px;
+      color: $white;
+      font-weight:bold;
+      margin-left: auto;
+      margin-right: auto;
+      vertical-align: middle;
 }

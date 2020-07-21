@@ -19,6 +19,7 @@ class TracksController < ApplicationController
   def create
     @track = Track.new(track_params)
     @track.creator_id = current_user.id
+    @track.color_theme = "#FFCD00"
     if @track.save
       redirect_to edit_track_path(@track)
     else

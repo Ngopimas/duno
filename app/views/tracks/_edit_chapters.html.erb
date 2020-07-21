@@ -52,7 +52,7 @@
       </div>
     </div>
   </div>
-  <div class="col-6 bg-white border-left">
+  <div class="col-6 card">
     <div class= "mx-auto">
       <div class= "mx-auto py-5">
          <% if !@track.chapters.last.nil? %>
@@ -66,7 +66,7 @@
     </div>
   </div>
 
-  <div class="col-4 bg-white">
+  <div class="col-4 card">
     <div class="smartphone" style="font-family: <%= @track.font_theme %>">
       <div class="inside-content">
         <%= render 'tracks/edit_preview_header' %>

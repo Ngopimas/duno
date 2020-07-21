@@ -11,5 +11,6 @@ Rails.application.routes.draw do
   end
 
   resources :subscriptions, only: [:create]
+  resources :chapter_subscriptions, only: [:update]
 end
 

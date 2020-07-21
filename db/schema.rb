@@ -46,6 +46,16 @@ ActiveRecord::Schema.define(version: 2020_07_18_100457) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
+  create_table "chapter_subscriptions", force: :cascade do |t|
+    t.bigint "subscription_id", null: false
+    t.bigint "chapter_id", null: false
+    t.boolean "read", default: false, null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["chapter_id"], name: "index_chapter_subscriptions_on_chapter_id"
+    t.index ["subscription_id"], name: "index_chapter_subscriptions_on_subscription_id"
+  end
+
   create_table "chapters", force: :cascade do |t|
     t.string "title"
     t.text "content"
@@ -93,6 +103,8 @@ ActiveRecord::Schema.define(version: 2020_07_18_100457) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "chapter_subscriptions", "chapters"
+  add_foreign_key "chapter_subscriptions", "subscriptions"
   add_foreign_key "chapters", "tracks"
   add_foreign_key "subscriptions", "tracks"
   add_foreign_key "subscriptions", "users"

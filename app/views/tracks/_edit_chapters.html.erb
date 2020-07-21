@@ -4,24 +4,25 @@
       <div class="d-flex justify-content-between align-items-center">
           <div data-controller="drag" data-drag-url="/tracks/:track_id/chapters/:id/move" >
             <% @track.chapters.order(position: :asc).each do |chapter| %>
-              <div data-id="<%= chapter.id %>" data-track_id="<%= chapter.track.id %>" class="table-chapter mb-4 border-0 shadow-none flex-align">
-                <% if chapter == @chapter %>
-                  <tr>
-                          <td> <%= chapter.position %> </td>
-                          <td class="active-chapter-row" style="font-size: 14px;"> <strong> <%= link_to chapter.title, edit_track_chapter_path(@track, chapter), class: "active-chapter-link" %> </strong> </td>
-                 </tr>
+              <div data-id="<%= chapter.id %>" data-track_id="<%= chapter.track.id %>" class="mb-4 border-0 shadow-none flex-align">
+                <% if !@track.chapters.last.nil? && chapter == @track.chapters.last %>
+                  <div class="flex-align">
+                    <div class="d-flex flex-row">
+                         <div class="p-2 chapter-position"> <%= chapter.position %> </div>
+                         <div class="p-2 active-chapter-title text-justify-center text-center"> <%= chapter.title %> </div>
+                    </div>
+                  </div>
                 <% else %>
-                  <tr>
-                          <td class = "no-line"> <%= chapter.position %> </td>
-                          <td class = "no-line" style="font-size: 14px;"> <strong> <%= link_to chapter.title, edit_track_chapter_path(@track, chapter), class: "no-line" %> </strong>  </td>
-                  </tr>
+                  <div class="flex-align">
+                    <div class="d-flex flex-row">
+                        <div class="p-2 chapter-position"> <%= chapter.position %> </div>
+                        <div class="p-2 chapter-title text-justify-center text-center">  <%= link_to chapter.title, edit_track_chapter_path(@track, chapter) %>  </div>
+                    </div>
+                  </div>
                 <% end %>
               </div>
             <% end %>
-
-        </div>
-      </div>
-    </div>
+          </div>
     <!-- Button trigger modal -->
     <button type="button" class="btn btn-dark p-0" style="font-weight:bold; font-size:1.5em; width:40px; height:40px;" data-toggle="modal" data-target="#exampleModalCenter">
       +
@@ -69,8 +70,15 @@
         <%= render 'tracks/edit_preview_header' %>
         <% if !@track.chapters.last.nil? %>
           <div class="p-3">
-            <h3> <%= @track.chapters.last.title %> </h3>
-            <%= @track.chapters.last.content %>
+            <div class="d-flex sticky-top py-2" style="background-color: rgba(255,255,255);">
+              <div class="back-chapters btn font-weight-bold mr-2" style="color:#FFCD00; font-size:1.5em;">
+                <
+              </div>
+              <h4 style="font-weight: bold;"><%= @track.chapters.last.title %></h4>
+            </div>
+            <div style="text-align: justify; text-justify: word-spacing;">
+              <%= @track.chapters.last.content %>
+            </div>
           </div>
         <% end %>
       </div>

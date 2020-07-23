@@ -2,11 +2,11 @@
 <% @progress_avatar_size = "" %>
 <% @progress_text = "" %>
 
-<% if @progress.nil? || @progress == 0 %>
+<% if progress.nil? || progress == 0 %>
   <% @progress_avatar = "baby.png" %>
   <% @progress_avatar_size = 15 %>
   <% @progress_text = "Beginner" %>
-<% elsif @progress == 100 %>
+<% elsif progress == 100 %>
   <% @progress_avatar = "icon-expert.png" %>
   <% @progress_avatar_size = 20 %>
   <% @progress_text = "Expert" %>
@@ -15,7 +15,6 @@
   <% @progress_avatar_size = 25 %>
   <% @progress_text = "Intermediate" %>
 <% end %>
-
 
 <div class="p-3 sticky-top bg-white d-flex justify-content-between align-text-top">
   <% if @track.photo.attached? %>
@@ -37,5 +36,4 @@
     <%= render 'tracks/progress_bar', user: current_user, track: @track %>
   </div>
 </div>
-
 

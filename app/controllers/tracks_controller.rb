@@ -35,6 +35,9 @@ class TracksController < ApplicationController
 
   def edit
     @track = Track.find(params[:id])
+    p1 = current_user.subscriptions.find_by(track: @track).chapter_subscriptions.where(read: true).count.to_f
+    p2 = @track.chapters.count.to_f
+    @progress = (p1/p2*100) >= 0 ? (p1/p2*100).round : 0
     @subscription = current_user.subscriptions.where(track_id: @track.id).first || Subscription.new
     @chapter = Chapter.new
   end

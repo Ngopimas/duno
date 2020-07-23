@@ -1,57 +1,98 @@
 <div class="row vh-100">
   <div class="col-2 bg-white card-chapter">
-     <div class="flex-align">
-      <div class="d-flex justify-content-between align-items-center">
-        <div data-controller="drag" data-drag-url="/tracks/:track_id/chapters/:id/move" class="table-chapter">
-          <% @track.chapters.order(position: :asc).each do |chapter| %>
-            <div data-id="<%= chapter.id %>" data-track_id="<%= chapter.track.id %>" class="mb-4 border-0 shadow-none flex-align">
-              <% if !@track.chapters.last.nil? && chapter == @track.chapters.last %>
-                <div class="flex-align">
-                  <div class="d-flex flex-row">
-                       <div class="p-2 chapter-position"> <%= chapter.position %> </div>
-                       <div class="p-2 active-chapter-title text-justify-center text-center"> <%= chapter.title %> </div>
-                  </div>
-                </div>
-              <% else %>
-                <div class="flex-align">
-                  <div class="d-flex flex-row">
-                      <div class="p-2 chapter-position"> <%= chapter.position %> </div>
-                      <div class="p-2 chapter-title text-justify-center text-center">  <%= link_to chapter.title, edit_track_chapter_path(@track, chapter) %>  </div>
-                  </div>
-                </div>
-              <% end %>
-            </div>
-          <% end %>
+    <% if @track.chapters.last.nil? %>
+      <div class="flex-align">
+        <div class="d-flex justify-content-between align-items-center">
+          <button type="button" class="btn btn-dark p-0" style="font-weight:bold; font-size:1.5em; width:40px; height:40px;" data-toggle="modal" data-target="#exampleModalCenter">
+            +
+          </button>
+          <div class="card-create-chapter mb-2 mt-2">
+            <p class="card-text-create-chapter"> Create your first chapter! </p>
+          </div>
         </div>
       </div>
-    </div>
-    <!-- Button trigger modal -->
-    <button type="button" class="btn btn-dark p-0" style="font-weight:bold; font-size:1.5em; width:40px; height:40px;" data-toggle="modal" data-target="#exampleModalCenter">
-      +
-    </button>
-    <!-- Modal -->
-    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLongTitle">Add a new chapter</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
+
+      <!-- Modal -->
+      <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLongTitle">Add a new chapter</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
             <%= simple_form_for [@track, @chapter]  do |f| %>
-              <div class="modal-body">
-                <%= f.input :title, label: "Title" %>
-              </div>
-              <div class="modal-footer">
-                <%= f.button :submit, "Add the chapter",  class: "btn btn-primary" %>
+            <div class="modal-body">
+              <%= f.input :title, label: "Title" %>
+            </div>
+            <div class="modal-footer">
+              <%= f.button :submit, "Add the chapter",  class: "btn btn-primary" %>
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+            <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% else %>
+      <div class="flex-align">
+        <div class="d-flex">
+          <div data-controller="drag" data-drag-url="/tracks/:track_id/chapters/:id/move" class="table-chapter">
+            <% @track.chapters.order(position: :asc).each do |chapter| %>
+              <div data-id="<%= chapter.id %>" data-track_id="<%= chapter.track.id %>" class="mb-4 border-0 shadow-none flex-align">
+                <% if !@track.chapters.last.nil? && chapter == @track.chapters.last %>
+                  <div class="flex-align">
+                    <div class = "active-div">
+                      <div class="d-flex flex-row">
+                        <div class="p-2 chapter-position"> <%= chapter.position %> </div>
+                        <div class="p-2 active-chapter-title"> <%= chapter.title %> </div>
+                      </div>
+                    </div>
+                  </div>
+                <% else %>
+                  <div class="flex-align">
+                    <div class = "non-active-div text-align-left">
+                      <div class="d-flex flex-row">
+                        <div class="p-2 chapter-position"> <%= chapter.position %> </div>
+                        <div class="p-2 chapter-title">  <%= link_to chapter.title, edit_track_chapter_path(@track, chapter)%>  </div>
+                      </div>
+                    </div>
+                  </div>
+                <% end %>
               </div>
             <% end %>
+          </div>
         </div>
       </div>
-    </div>
+    <!-- Button trigger modal -->
+      <button type="button" class="btn btn-dark p-0" style="font-weight:bold; font-size:1.5em; width:40px; height:40px;" data-toggle="modal" data-target="#exampleModalCenter">
+        +
+      </button>
+      <!-- Modal -->
+      <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLongTitle">Add a new chapter</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+              <%= simple_form_for [@track, @chapter]  do |f| %>
+                <div class="modal-body">
+                  <%= f.input :title, label: "Title" %>
+                </div>
+                <div class="modal-footer">
+                  <%= f.button :submit, "Add the chapter",  class: "btn btn-primary" %>
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                </div>
+              <% end %>
+          </div>
+        </div>
+      </div>
+    <% end %>
   </div>
+
   <div class="col-6 card">
     <div class= "mx-auto">
       <div class= "mx-auto py-5">

@@ -26,7 +26,7 @@
       </div>
     </div>
     <!-- Button trigger modal -->
-    <button type="button" class="btn btn-dark p-0" data-container="body" data-toggle="popover" data-placement="right" data-content="Add your first chapter" style="font-weight:bold; font-size:1.5em; width:40px; height:40px;" data-toggle="modal" data-target="#exampleModalCenter">
+    <button type="button" class="btn btn-dark p-0" style="font-weight:bold; font-size:1.5em; width:40px; height:40px;" data-toggle="modal" data-target="#exampleModalCenter">
       +
     </button>
     <!-- Modal -->
@@ -57,8 +57,8 @@
       <div class= "mx-auto py-5">
          <% if !@track.chapters.last.nil? %>
             <%= simple_form_for [@track, @track.chapters.last] do |f| %>
-              <%= f.input :title, label: "Title" %>
-              <%= f.input :content, as: :rich_text_area, label: "Content", placeholder: "In this chapter, we're about to learn...." %>
+              <%= f.input :title, label: "Title", placeholder: "Enter a title for this chapter" %>
+              <%= f.input :content, as: :rich_text_area, label: "Content", placeholder: "In this chapter, we're about to learn..." %>
               <%= f.button :submit, "Update chapter",  class: "btn btn-primary btn-lg mt-5" %>
             <% end %>
           <% end %>

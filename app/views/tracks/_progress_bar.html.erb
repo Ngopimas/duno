@@ -2,5 +2,5 @@
 <% p2 = @track.chapters.count.to_f %>
 <% @progress = (p1/p2*100) >= 0 ? (p1/p2*100).round : 0 %>
 <div class="progress">
-  <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: <%= @progress %>%; background-color: #{@track.color_theme};" aria-valuenow="<%= @progress %>" aria-valuemin="0" aria-valuemax="100"></div>
+  <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: <%= progress %>%; background-color: <%= @track.color_theme %> ;" aria-valuenow="<%= progress %>" aria-valuemin="0" aria-valuemax="100"></div>
 </div>

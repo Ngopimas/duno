@@ -1,0 +1,31 @@
+<% @track.chapters.each do |chapter| %>
+  <% @subscription = user.subscriptions.find_by(track: @track) %>
+  <% @my_chapter_subscription = ChapterSubscription.find_by(subscription: @subscription, chapter: chapter) %>
+  <div class="chapter-tab" data-target="#chapter-content-<%= chapter.id %>">
+    <div class="card p-3 my-2">
+      <div class="d-flex justify-content-between" >
+      <span class=""><%= chapter.title %></span>
+      <% if @my_chapter_subscription&.read == true %>
+        <i class="fas fa-check-circle" style='color:<%= @track.color_theme %>;'></i>
+      <% end %>
+      </div>
+    </div>
+  </div>
+  <div id="chapter-content-<%= chapter.id %>" class="chapter-content" style="display: none;">
+    <div class="d-flex sticky-top py-2" style="background-color: rgba(255,255,255,0.9);">
+      <div class="back-chapters btn font-weight-bold mr-2" style="color:<%= @track.color_theme %>; font-size:1.5em;">
+        <
+      </div>
+      <h4 style="font-weight: bold;"><%= chapter.title %></h4>
+    </div>
+    <div id="chapter-body" style="text-align: justify; text-justify: word-spacing;">
+      <%= chapter.content %>
+    </div>
+    <div class="sticky-bottom" style="margin-top:20px;">
+        <div class="btn-undo-container" id="chapter-subscription-<%= @my_chapter_subscription.id %>">
+          <%= render 'tracks/btn_undo', my_chapter_subscription: @my_chapter_subscription, track: @track %>
+        </div>
+    </div>
+  </div>
+<% end %>
+

@@ -42,7 +42,7 @@ class TracksController < ApplicationController
   def update
     @track = Track.find(params[:id])
     if @track.update(track_params)
-      redirect_to edit_track_path(@track, toto:"toto")
+      redirect_to edit_track_path(@track, custom:"custom")
     else
       render :edit
     end

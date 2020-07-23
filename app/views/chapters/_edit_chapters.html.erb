@@ -1,21 +1,25 @@
 <div class="row vh-100">
-  <div class="col-2 card card-chapter">
+  <div class="col-2 bg-white card-chapter">
 
           <div data-controller="drag" data-drag-url="/tracks/:track_id/chapters/:id/move" class = "table-chapter">
             <% @track.chapters.order(position: :asc).each do |chapter| %>
               <div data-id="<%= chapter.id %>" data-track_id="<%= chapter.track.id %>" class="mb-4 border-0 shadow-none flex-align">
                 <% if chapter == @chapter %>
                   <div class="flex-align">
-                    <div class="d-flex flex-row">
-                         <div class="p-2 chapter-position"> <%= chapter.position %> </div>
-                         <div class="p-2 active-chapter-title text-justify-center text-center"> <%= chapter.title %> </div>
+                    <div class = "active-div">
+                      <div class="d-flex flex-row">
+                           <div class="p-2 chapter-position"> <%= chapter.position %> </div>
+                           <div class="p-2 active-chapter-title"> <%= chapter.title %> </div>
+                      </div>
                     </div>
                   </div>
                 <% else %>
                   <div class="flex-align">
-                    <div class="d-flex flex-row">
-                        <div class="p-2 chapter-position"> <%= chapter.position %> </div>
-                        <div class="p-2 chapter-title text-justify-center text-center">  <%= link_to chapter.title, edit_track_chapter_path(@track, chapter) %>  </div>
+                    <div class = "non-active-div">
+                      <div class="d-flex flex-row">
+                          <div class="p-2 chapter-position text-align-left"> <%= chapter.position %> </div>
+                          <div class="p-2 chapter-title">  <%= link_to chapter.title, edit_track_chapter_path(@track, chapter) %>  </div>
+                      </div>
                     </div>
                   </div>
                 <% end %>

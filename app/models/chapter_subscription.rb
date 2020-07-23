@@ -1,6 +1,6 @@
 class ChapterSubscription < ApplicationRecord
-  belongs_to :subscription, dependent: :destroy
-  belongs_to :chapter, dependent: :destroy
+  belongs_to :subscription
+  belongs_to :chapter
 
   scope :read, -> { where(read: true) }
 end

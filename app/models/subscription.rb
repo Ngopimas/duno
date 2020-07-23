@@ -1,7 +1,7 @@
 class Subscription < ApplicationRecord
   belongs_to :user
   belongs_to :track
-  has_many :chapter_subscriptions
+  has_many :chapter_subscriptions, dependent: :destroy
   has_many :chapters, through: :chapter_subscriptions
 
   after_save :create_chapter_subscriptions

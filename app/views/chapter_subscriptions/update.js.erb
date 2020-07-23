@@ -1,3 +1,23 @@
+document.querySelectorAll(".chapters-container").forEach((chaptersView) => {
+  chaptersView.innerHTML = "<%= j render 'tracks/iteration_chapters', user: current_user, track: @track %>"
+});
+
 document.querySelectorAll('.progress-bar-container').forEach((progressBar) => {
   progressBar.innerHTML = "<%= j render 'tracks/progress_bar', user: current_user, track: @track %>"
+});
+
+$('.chapter-tab').click(function() {
+  const target = $(this)[0].dataset.target;
+  $(target).show();
+  // $(".current-chapter").removeClass("current-chapter");
+  // $(target)[0].classList.add("current-chapter");
+  $('.chapter-tab').hide();
+  $('.track-title').hide();
+  $('.back-chapters').show();
+});
+$('.back-chapters').click(function() {
+  $('.chapter-tab').show();
+  $('.track-title').show();
+  $('.chapter-content').hide();
+  $('.back-chapters').hide();
 });

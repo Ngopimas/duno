@@ -1,0 +1,6 @@
+<% if @my_chapter_subscription&.read == false %>
+  <%= link_to "Got it!", chapter_subscription_path(@my_chapter_subscription), method: "patch", class: "btn btn-lg w-100 undo-btn", style: "background-color: #{@track.color_theme}", remote: true %>
+<% elsif @my_chapter_subscription %>
+  <%= link_to "Undo", chapter_subscription_path(@my_chapter_subscription), method: "patch", class:"btn btn-secondary btn-lg w-100 undo-btn", remote: true %>
+<% end %>
+

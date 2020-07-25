@@ -7,7 +7,7 @@
 <div class="d-flex justify-content-center p-5">
   <div class="smartphone bg-white" style="font-family: <%= @track.font_theme %>">
     <div class="inside-content chapters-container" style="height: 500px" id="preview-body">
-      <%= render 'tracks/iteration_chapters', user: current_user, track: @track, progress: progress %>
+      <%= render 'tracks/iteration_chapters', user: current_user, track: @track, progress: @progress %>
     </div>
   </div>
 </div>

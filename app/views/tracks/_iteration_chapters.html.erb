@@ -1,6 +1,6 @@
 <% if !@track.chapters.last.nil? %>
   <div class="preview-header bg-white">
-    <%= render 'tracks/edit_preview_header', progress: progress %>
+    <%= render 'tracks/edit_preview_header', progress: @progress %>
     <div class="track-title text-center mb-4">
       <h4 class="font-weight-bold"><%= @track.title %></h4>
       Choose your chapter!

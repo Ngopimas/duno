@@ -1,5 +1,4 @@
 <% @progress_avatar = "" %>
-<% @progress_avatar_size = "" %>
 <% @progress_text = "" %>
 <% p1 = current_user.subscriptions.find_by(track: @track).chapter_subscriptions.where(read: true).count.to_f %>
 <% p2 = @track.chapters.count.to_f %>
@@ -7,15 +6,12 @@
 
 <% if @level.nil? || @level == 0 %>
   <% @progress_avatar = "baby.png" %>
-  <% @progress_avatar_size = 15 %>
   <% @progress_text = "Beginner" %>
 <% elsif @level == 100 %>
   <% @progress_avatar = "icon-expert.png" %>
-  <% @progress_avatar_size = 20 %>
   <% @progress_text = "Expert" %>
 <% else %>
   <% @progress_avatar = "icon-intermediate2.png" %>
-  <% @progress_avatar_size = 25 %>
   <% @progress_text = "Intermediate" %>
 <% end %>
 
@@ -27,7 +23,7 @@
   <% end %>
   <div class="d-flex flex-column text-right">
     <div class="rounded float-right">
-      <%= image_tag @progress_avatar, alt: "alttext", style:"height: auto; width: 20%; object-fit: contain; object-position: center", class:"rounded-circle" %>
+      <%= image_tag @progress_avatar, alt: "alttext", style:"height: 2em; width: 20%; object-fit: contain; object-position: center", class:"rounded-circle" %>
     </div>
     <div>
       <a><%= @progress_text %></a>

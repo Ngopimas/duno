@@ -6,19 +6,8 @@
 </div>
 <div class="d-flex justify-content-center p-5">
   <div class="smartphone bg-white" style="font-family: <%= @track.font_theme %>">
-    <div class="inside-content" style="height: 500px" id="preview-body">
-    <% if !@track.chapters.last.nil? %>
-      <div class="preview-header bg-white">
-        <%= render 'tracks/edit_preview_header' %>
-        <div class="track-title text-center mb-4">
-          <h4 class="font-weight-bold"><%= @track.title %></h4>
-          Choose your chapter!
-        </div>
-      </div>
-      <div class="p-2 chapters-container">
-        <%= render 'tracks/iteration_chapters', user: current_user, track: @track %>
-      </div>
-    <% end %>
+    <div class="inside-content chapters-container" style="height: 500px" id="preview-body">
+      <%= render 'tracks/iteration_chapters', user: current_user, track: @track, progress: @progress %>
     </div>
   </div>
 </div>

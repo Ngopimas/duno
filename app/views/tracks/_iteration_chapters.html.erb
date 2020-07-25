@@ -21,11 +21,11 @@
         </div>
       </div>
       <div id="chapter-content-<%= chapter.id %>" class="chapter-content" style="display: none;">
-        <div class="d-flex sticky-top py-2" style="background-color: rgba(255,255,255,0.9);">
+        <div class="d-flex align-items-center sticky-top py-2" style="background-color: rgba(255,255,255,0.9);">
           <div class="back-chapters btn font-weight-bold mr-2" style="color:<%= @track.color_theme %>; font-size:1.5em;">
             <
           </div>
-          <h4 style="font-weight: bold;"><%= chapter.title %></h4>
+          <h4 style="font-weight: bold; margin-bottom: 0;"><%= chapter.title %></h4>
         </div>
         <div id="chapter-body" style="text-align: justify; text-justify: word-spacing;">
           <%= chapter.content %>
